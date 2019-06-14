@@ -28,9 +28,10 @@ class Params extends React.Component {
         event.preventDefault();
           }
 
+
     render() {
         return (
-            <form onSubmit={this.Submit}>
+             <form onSubmit={this.Submit}>
                 <label>
                     Введите размер матрицы
                     <input type="text" name={'M'} onChange={this.InputM}/>
@@ -38,6 +39,8 @@ class Params extends React.Component {
                 </label>
                 <input type="submit" value="Отправить" />
             </form>
+
+
         );
     }
 }

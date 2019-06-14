@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 function Send() {
     let stocks = [];
     let needs = [];
@@ -25,6 +26,7 @@ function Send() {
 }
 
 class Table extends React.Component {
+
 
     header = [];
    row = [];
@@ -77,7 +79,11 @@ class Table extends React.Component {
             }
                 else
                     if (i < n+1) {
+
                 this.nedds.push(<td><input type="text" id={'b' + i}/></td>)
+
+                this.nedds.push(<td id={'b' + i}><input type="text" id={'b' + i}/></td>)
+
             }
                     else {
                         this.nedds.push(<td></td>)
@@ -105,7 +111,11 @@ class Table extends React.Component {
                     </tr>
                     </tbody>
                 </table>
+
                 <button type="submit" className="btn btn-primary" onClick={Send}>Send</button>
+=======
+                <button type="button" className="btn btn-primary">Send</button>
+>>>>>>> origin/master
             </div>
         );
     }
