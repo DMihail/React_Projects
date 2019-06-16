@@ -82,46 +82,80 @@ function Upend(mass){
 }
 
 function Dell() {
-      //Upend(venger);
+    //  Upend(venger);
+    console.log(venger);
+    let zero = 0;
     let mass = [];
+
     for (let i = 0; i < venger.length; i++) {
-        mass.push([]);
         for (let j = 0; j < venger.length; j++) {
             if (venger[i][j] === 0) {
-                mass[i] +=1;
-              //  mass[i].push(-1)
-            // }else {
-            //     mass[i].push(0);
+                zero++;
              }
-
-        }
-
-    }
-    //console.log(mass)
-   let maxRow = Math.max.apply(null,mass);
-
-    console.log(mass.indexOf(maxRow.toString()));
-   // venger.splice(1, 1);
-     Upend(venger);
-    let mass2 = [];
-    for (let i = 0; i < venger.length; i++) {
-        mass2.push([]);
-        for (let j = 0; j < venger.length; j++) {
-            if (venger[i][j] === 0) {
-                mass2[i] += 1;
+            if (j === venger[j].length - 1 ) {
+                if (zero >= 2) {
+                    mass.push(zero);
+                }
+                else {
+                    mass.push(0);
+                }
             }
         }
+        zero = 0;
+
     }
+
+    //console.log(venger);
+    //console.log(mass);
+
+     Upend(venger);
+
+     zero = 0;
+    let mass2 = [];
+    for (let i = 0; i < venger.length; i++) {
+        for (let j = 0; j < venger.length; j++) {
+            if (venger[i][j] === 0) {
+                zero++;
+            }
+            if (j === venger[j].length - 1) {
+                if (zero >= 2) {
+                    mass2.push(zero);
+                } else {
+                    mass2.push(0);
+                }
+            }
+        }
+            zero = 0;
+
+    }
+
+    Upend(venger);
+    console.log(venger);
+    console.log(mass2);
+    let k = 0;
+    let maxRow = Math.max.apply(null,mass);
+    for (let i = 0; i < mass.length; i++){
+        if (mass[i] === maxRow){
+            venger.splice(i - k, 1);
+            k++;
+        }
+    }
+    Upend(venger);
+    console.log(venger);
     let maxColl = Math.max.apply(null,mass2);
-    console.log(maxColl);
-   //  venger.splice(2, 1);
-   //  venger.splice(2, 1);
-   // venger.splice(2, 1);
-   //    Upend(venger);
+    k = 0;
+
+    for (let i = 0; i < mass2.length; i++){
+        if (mass2[i] === maxColl){
+            venger.splice(i - k, 1);
+            k++;
+        }
+    }
 
 
+console.log(mass2);
 
-        console.log(venger)
+console.log(venger)
 }
 let venger = [[7,3,6,9,5], [7,5,7,5,6], [7,6,8,8,9], [3,1,6,5,7], [2,4,9,9,5]];
 //let venger = [[6, 15, 3 ,12, 4, 2], [14, 3, 3 ,7, 2, 1], [3, 2, 8, 15, 8, 12], [3, 14, 3, 15, 11, 10], [3, 13, 1, 9, 6, 6], [15, 10, 3, 4, 5, 10]];
