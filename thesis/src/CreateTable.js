@@ -74,17 +74,13 @@ class Table extends React.Component {
     Needs(n){
 
         for (let i = 0; i < n + 2; i++){
-            if (i == 0) {
+            if (i === 0) {
                 this.nedds.push(<td>Need</td>)
             }
                 else
                     if (i < n+1) {
-
-                this.nedds.push(<td><input type="text" id={'b' + i}/></td>)
-
-                this.nedds.push(<td id={'b' + i}><input type="text" id={'b' + i}/></td>)
-
-            }
+                         this.nedds.push(<td><input type="text" id={'b' + i}/></td>)
+                     }
                     else {
                         this.nedds.push(<td></td>)
                     }
@@ -93,9 +89,11 @@ class Table extends React.Component {
     }
 
     render() {
-        this.CreateHeaderTable(5);
-        this.CreateRow(5, 5);
-        this.Needs(5);
+        let m = this.props.m;
+        let n = this.props.n;
+        this.CreateHeaderTable(m);
+        this.CreateRow(m, m);
+        this.Needs(n);
         return (
             <div className="container">
                 <table className={'table table-bordered'}>
@@ -113,9 +111,6 @@ class Table extends React.Component {
                 </table>
 
                 <button type="submit" className="btn btn-primary" onClick={Send}>Send</button>
-=======
-                <button type="button" className="btn btn-primary">Send</button>
->>>>>>> origin/master
             </div>
         );
     }

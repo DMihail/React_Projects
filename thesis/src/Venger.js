@@ -1,5 +1,5 @@
 let venger = [[7,3,6,9,5], [7,5,7,5,6], [7,6,8,8,9], [3,1,6,5,7], [2,4,9,9,5]];
-let SaveMass = venger;
+let SaveMass  = [[7,3,6,9,5], [7,5,7,5,6], [7,6,8,8,9], [3,1,6,5,7], [2,4,9,9,5]];
 console.log(SaveMass);
 //let venger = [[6, 15, 3 ,12, 4, 2], [14, 3, 3 ,7, 2, 1], [3, 2, 8, 15, 8, 12], [3, 14, 3, 15, 11, 10], [3, 13, 1, 9, 6, 6], [15, 10, 3, 4, 5, 10]];
 let maxElements = [];
@@ -223,19 +223,23 @@ let end = [];
 }
 
 
+/**
+ * @return {number}
+ */
 function Sum(mass, save){
     let sum = 0;
-  console.log(save);
-    // for (let i = 0; i < saveMass.length; i++) {
-    //     for (let j = 0; j < saveMass[i].length; j++){
-    //         if (j === mass[i]){
-    //             console.log(saveMass[i][j]);
-    //             sum += saveMass[i][j];
-    //         }
-    //     }
-    // }
-  //  console.log(sum)
-    //console.log(saveMass);
+ // console.log(save);
+    for (let i = 0; i < save.length; i++) {
+        for (let j = 0; j < save[i].length; j++){
+            if (j === mass[i]){
+                console.log(save[i][j]);
+                sum += save[i][j];
+            }
+        }
+    }
+   console.log(sum);
+    console.log(save);
+    return sum;
 }
 
 

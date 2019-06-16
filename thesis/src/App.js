@@ -1,24 +1,12 @@
 import React from 'react';
-
-import './App.css';
-
+import Tables from './CreateTable';
+import VengerTable from './VengerTable';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+     <span>Enter table parameters</span>
+    <VengerTable m = {5} n = {5}/>
     </div>
   );
 }
