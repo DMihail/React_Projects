@@ -1,8 +1,21 @@
+let venger = [[7,3,6,9,5], [7,5,7,5,6], [7,6,8,8,9], [3,1,6,5,7], [2,4,9,9,5]];
+let SaveMass = venger;
+console.log(SaveMass);
+//let venger = [[6, 15, 3 ,12, 4, 2], [14, 3, 3 ,7, 2, 1], [3, 2, 8, 15, 8, 12], [3, 14, 3, 15, 11, 10], [3, 13, 1, 9, 6, 6], [15, 10, 3, 4, 5, 10]];
+let maxElements = [];
+let minElementsRow = [];
+let minElementsColl = [];
+
+let massRowZero = [];
+let massCollZero = [];
+
+FindMaxElement(venger);
+
 function FindMaxElement(mass) {
     mass.map((num)=>{
        maxElements.push(Math.max.apply(null,num));
     });
-    saveMass = venger;
+
     TakeAway(venger, maxElements);
     Upend(venger);
     FindMinElement();
@@ -17,7 +30,6 @@ function FindMinElement() {
         venger.map((num)=>{
             minElementsRow.push(Math.min.apply(null, num));
         });
-        //  console.log(minElementsRow);
         TakeAway(venger, minElementsRow);
         massRowZero =  FindZero(venger);
         Upend(venger);
@@ -26,7 +38,6 @@ function FindMinElement() {
         venger.map((num)=>{
             minElementsColl.push(Math.min.apply(null, num));
         });
-        //  console.log(minElementsColl);
 
         massCollZero =  FindZero(venger);
 
@@ -38,10 +49,7 @@ function FindMinElement() {
     else {
         massCollZero =  FindZero(venger);
         Upend(venger);
-   //     console.log(venger);
         massRowZero =  FindZero(venger);
-       // console.log( massRowZero);
-      //  console.log( massCollZero);
         Dell();
     }
 
@@ -82,8 +90,10 @@ function Upend(mass){
 }
 
 function Dell() {
+    let save = [];
     //  Upend(venger);
-    console.log(venger);
+    save = venger;
+   // console.log(venger);
     let zero = 0;
     let mass = [];
 
@@ -131,17 +141,23 @@ function Dell() {
 
     Upend(venger);
     console.log(venger);
+let zx = [];
     console.log(mass2);
     let k = 0;
     let maxRow = Math.max.apply(null,mass);
     for (let i = 0; i < mass.length; i++){
         if (mass[i] === maxRow){
+            zx.push(1);
             venger.splice(i - k, 1);
             k++;
+        }else {
+            zx.push(0)
         }
     }
+  //  console.log(mass);
+    console.log(zx);
     Upend(venger);
-    console.log(venger);
+  //  console.log(venger);
     let maxColl = Math.max.apply(null,mass2);
     k = 0;
 
@@ -153,17 +169,75 @@ function Dell() {
     }
 
 
-console.log(mass2);
+//console.log(mass2);
+let max = [];
+    venger.map((num)=>{
+        max.push(Math.min.apply(null, num));
+    });
+    Upend(venger);
+    venger.map((num)=>{
+        max.push(Math.min.apply(null, num));
+    });
+    let min = (Math.min.apply(null, max));
 
-console.log(venger)
+
+    //console.log(min);
+    //console.log(venger);
+    for (let i = 0; i < venger.length; i++){
+        for (let j = 0; j < venger[i].length; j++){
+          venger[i][j] -= min;
+        }
+    }
+  //  Upend(venger);
+for (let i = 0; i < save.length; i++) {
+    //for (let j = 0; j < venger[0].length; j ++) {
+        if (zx[i] !== 0 ) {
+            venger.splice(i, 0, 0);
+       // }
+    }
 }
-let venger = [[7,3,6,9,5], [7,5,7,5,6], [7,6,8,8,9], [3,1,6,5,7], [2,4,9,9,5]];
-//let venger = [[6, 15, 3 ,12, 4, 2], [14, 3, 3 ,7, 2, 1], [3, 2, 8, 15, 8, 12], [3, 14, 3, 15, 11, 10], [3, 13, 1, 9, 6, 6], [15, 10, 3, 4, 5, 10]];
-let maxElements = [];
-let minElementsRow = [];
-let minElementsColl = [];
-let saveMass = [];
-let massRowZero = [];
-let massCollZero = [];
- FindMaxElement(venger);
+    for (let i = 0; i < venger.length; i++){
+        for (let j = 0; j < venger[i].length; j++){
+            if (venger[i] !== 0) {
+                save[i][j] = venger[i][j];
+            }
+        }
+    }
+    console.log(save);
+      Upend(save);
+
+let end = [];
+    for (let i = 0; i < save.length; i++){
+        for (let j = 0; j < save[i].length; j++){
+            if (save[i][j] === 0 ){
+                end.push(j);
+                j = save[i].length;
+            }
+        }
+    }
+    console.log(save);
+    console.log(end);
+    if (end.length === save.length){
+        Sum(end, SaveMass);
+    }
+}
+
+
+function Sum(mass, save){
+    let sum = 0;
+  console.log(save);
+    // for (let i = 0; i < saveMass.length; i++) {
+    //     for (let j = 0; j < saveMass[i].length; j++){
+    //         if (j === mass[i]){
+    //             console.log(saveMass[i][j]);
+    //             sum += saveMass[i][j];
+    //         }
+    //     }
+    // }
+  //  console.log(sum)
+    //console.log(saveMass);
+}
+
+
+
 
