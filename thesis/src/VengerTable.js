@@ -6,15 +6,8 @@ class VengerTable extends React.Component {
     row = [];
 
 
-<<<<<<< HEAD
     CreateRow(m) {
         for (let i = 1; i < m + 1; i++) {
-=======
-
-    CreateRow(m) {
-        for (let i = 1; i < m + 1; i++) {
-
->>>>>>> origin/master
             // eslint-disable-next-line jsx-a11y/scope
             this.row.push(<tr scope='row'>{this.CreateColl(m, i)}</tr>)
         }
@@ -28,7 +21,6 @@ class VengerTable extends React.Component {
 
         return coll;
     }
-<<<<<<< HEAD
 
 
      Send() {
@@ -63,45 +55,8 @@ class VengerTable extends React.Component {
                 </div>
             );
         }
-=======
-    Send(n, m) {
-
-         this.matrix = [];
-         let k = 0;
-        for (let i = 0; i < m; i++) {
-            this.matrix.push([]);
-            for (let j = 0; j < n; j++ ) {
-                this.matrix[i].push(
-                    parseInt(document.getElementById(i +',' + j).value)
-                );
-            }
-            k++;
-        }
         console.log(this.matrix);
     }
 
-    render() {
-        let m = this.props.m;
-        let n = this.props.n;
-
-        this.CreateRow(m, n);
-
-        return (
-            <div className="container">
-                <table className={'table table-bordered'}>
-                    <thead>
-                    <tr>
-                        {this.header}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.row}
-                    </tbody>
-                </table>
-                <button type="submit" className="btn btn-primary" onClick={this.Send(n, m)}>Send</button>
-            </div>
-        );
->>>>>>> origin/master
-    }
 }
 export default VengerTable;
