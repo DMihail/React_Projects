@@ -3,7 +3,8 @@ let index_X = undefined;
 let index_Y = undefined;
 // let a = [100, 150, 120],
 //     b = [130,80, 100, 60],
-//     c = [[3,2,5,4],[5,6,2,1],[7,9,10,12]];
+//     c = [[3,2,5,4],[5,6,2,1],[7,9,10,12]],
+//     d = [[3,2,5,4],[5,6,2,1],[7,9,10,12]];
 let a = [10, 20, 30],
     b = [15,20, 25],
     c = [[5,3,1],[3,2,4],[4,1,2]],
@@ -46,12 +47,12 @@ for(let i = 0; i < massA.length; i++){
 }
 
 function Dell() {
-
+   let len = Math.min(a.length, b.length);
     if (a[index_X] < b[index_Y]) {
         save[index_X][index_Y] = Math.min(a[index_X], b[index_Y]);
         b[index_Y] =  b[index_Y] - a[index_X];
         a[index_X] = 0;
-        for (let i = 0; i < c[index_X ].length; i++){
+        for (let i = 0; i < len.length; i++){
             if (c[index_X][i] !== -1) {
                 c[index_X][i] = 0;
             }
@@ -62,7 +63,7 @@ function Dell() {
         save[index_X][index_Y] = Math.min(a[index_X], b[index_Y]);
         a[index_X] = a[index_X] - b[index_Y];
         b[index_Y] = 0;
-        for (let i = 0; i < c[index_X ].length; i++){
+        for (let i = 0; i < len.length; i++){
             if (c[i][index_Y] !== -1) {
                 c[i][index_Y] = 0;
             }
