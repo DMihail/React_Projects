@@ -24,11 +24,17 @@ function CloseOrOpen(massA, massB) {
     });
     console.log(sumA === sumB);
     if (sumA === sumB){
+        a.map(()=>{
+            u.push(100);
+        });
+        b.map(()=>{
+            v.push(100);
+        });
         clone(c);
         for (;Sum(a) > 0;) {
             MinElement(c,a,b);
+            Dell();
         }
-        END(c);
         Potential();
     }
 
@@ -46,7 +52,6 @@ for(let i = 0; i < massA.length; i++){
     }
 }
     //console.log(index_X, index_Y);
-    Dell();
 }
 
 function Dell() {
@@ -92,8 +97,6 @@ function Sum(mass) {
 function clone(mass) {
     for (let i = 0; i < mass.length; i++) {
         save.push([]);
-        // v.push(0);
-        // u.push(0);
         for (let j = 0; j < mass[i].length; j++) {
             save[i].push(0)
 
@@ -114,15 +117,11 @@ function END(mass) {
             }
         }
     }
-    //console.log(zSum);
+    console.log(zSum);
     return zSum;
 }
 
 function Potential() {
-
-
-   v = [100,100,100];
-     u = [100,100,100];
     u[0]=0;
     for(let i=0;i<d.length;i++)
     {
@@ -150,17 +149,51 @@ function Potential() {
     }
 
     console.log(v);
-     console.log(u)
-    console.log(d)
-// let poz = [];
-//     for (let i =0; i < a.length; i++){
-//         for (let j = 0; j < b.length; j++){
-//             if (save[i][j] === 0) {
-//                 poz.push(d[i][j] - (u[i] + v[j]));
-//             }
-//         }
-//     }
-//     console.log(poz)
+    console.log(u);
+let poz = [];
+let pot = 0;
+
+    for (let i =0; i < a.length; i++){
+        poz.push([]);
+        for (let j = 0; j < b.length; j++){
+            if (save[i][j] === 0) {
+                pot = d[i][j] - (u[i] + v[j]);
+                 poz[i].push(pot)
+            }
+            else {
+                poz[i].push(0)
+            }
+        }
+    }
+
+    console.log(poz);
+    let min = 0;
+
+    for (let i = 0; i < poz.length; i++){
+        for (let j = 0; j < poz[i].length; j++){
+            min = Math.min(poz[i][j], min);
+            if (min === poz[i][j]){
+                index_X = i;
+                index_Y = j;
+            }
+        }
+    }
+        console.log(min);
+    console.log(index_X, index_Y);
+
+    if (min >= 0){
+        END(c);
+    }
+    let refresh = [];
+    refresh.push(save[index_X][index_Y]);
+    for (let i = index_X; i < poz.length; i++){
+        for (let j = index_Y; j < poz[i].length; j++){
+            if (poz[i][j]  === 0 && refresh.length < 4){
+                refresh.push(save[i][j])
+            }
+        }
+    }
+console.log(refresh);
 }
 
 CloseOrOpen(a,b);
