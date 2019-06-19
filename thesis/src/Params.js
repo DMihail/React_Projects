@@ -28,23 +28,36 @@ class Params extends React.Component {
 
     render() {
         return (
-             <form onSubmit={this.props.method}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-8 col-xl-6">
+            < div
+        className = "card border-danger" >
+            < div
+        className = "card-header" >
+                <h1 >Введите параметры </h1>
+        < /div>
+        <div className="card-body">
+            <form onSubmit={this.props.method}>
                 <span>
-                    Введите размер матрицы
-                    <input type="text" name={'M'} onChange={this.InputM}/>
-                    <input type="text" name={'N'}  onChange={this.InputN} />
+                    <h3 class="card-title">Введите размер матрицы </h3>
+                    <p>m:   <input type="text" name={'M'} onChange={this.InputM}/></p>
+                    <p>n:  <input type="text" name={'N'}  onChange={this.InputN} /></p>
                 </span>
-                 <span>Выбирете метод решения</span>
-                 <label>
-                     <select value={this.state.value} name={'metod'} onChange={this.Metod}>
-                         <option value="Venger">Венгерский Метод</option>
-                         <option value="Poten">Метод Потенциалов</option>
-                     </select>
-                 </label>
+                <h3 class="card-title">ВВыбирете метод решения</h3>
+                <label>
+                    <select value={this.state.value} name={'metod'} onChange={this.Metod}>
+                        <option value="Venger">Венгерский Метод</option>
+                        <option value="Poten">Метод Потенциалов</option>
+                    </select>
+                </label>
                 <input type="submit" value="Отправить" />
             </form>
-
-
+        </div>
+        </div>
+            </div>
+                    </div>
+                </div>
         );
     }
 }

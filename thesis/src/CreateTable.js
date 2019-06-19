@@ -1,29 +1,8 @@
 import React from 'react';
+//import MinElement from './MinElement';
+var Min = require("./MinElement");;
 
 
-
-function Send() {
-    let stocks = [];
-    let needs = [];
-    let matrix = [];
-    let k = 0;
-    for (let i = 1; i < 6; i++) {
-
-        stocks.push(parseInt(document.getElementById("a" + i ).value));
-        needs.push(parseInt(document.getElementById("b" + i ).value));
-        matrix.push([]);
-        for (let j = 1; j < 6;j++ ) {
-            matrix[k].push(
-                parseInt(document.getElementById(i +',' + j).value)
-            );
-        }
-        k++;
-    }
-
-    console.log(stocks);
-    console.log(needs);
-    console.log(matrix);
-}
 
 class Table extends React.Component {
 
@@ -31,6 +10,7 @@ class Table extends React.Component {
     header = [];
    row = [];
    nedds = [];
+   result = null;
     CreateHeaderTable(m) {
         for (let i = 0; i < m + 2; i++) {
             if (i === 0) {
@@ -61,7 +41,7 @@ class Table extends React.Component {
             if (j == 0){
               coll.push(<td>A{i}</td>)
             } else
-                if (i <n + 1 ){
+                if (i < n + 1 ){
                 coll.push(<td>{i + ',' + j} <input type={'text'} id={i + ',' + j}/></td>)
             }
 
@@ -79,12 +59,8 @@ class Table extends React.Component {
             }
                 else
                     if (i < n+1) {
-
-                this.nedds.push(<td><input type="text" id={'b' + i}/></td>)
-
-                this.nedds.push(<td id={'b' + i}><input type="text" id={'b' + i}/></td>)
-
-            }
+                        this.nedds.push(<td><input type="text" id={'b' + i}/></td>)
+                    }
                     else {
                         this.nedds.push(<td></td>)
                     }
@@ -92,10 +68,52 @@ class Table extends React.Component {
         return this.nedds;
     }
 
+
+    Send() {
+        let stocks = [];
+        let needs = [];
+        let matrix = [];
+        let matrix2 = [];
+        let k = 0;
+        for (let i = 1; i < 4; i++) {
+
+            stocks.push(parseInt(document.getElementById("a" + i ).value));
+            needs.push(parseInt(document.getElementById("b" + i ).value));
+            matrix.push([]);
+            matrix2.push([]);
+            for (let j = 1; j < 4;j++ ) {
+                matrix[k].push(
+                    parseInt(document.getElementById(i +',' + j).value)
+                );
+                matrix2[k].push(
+                    parseInt(document.getElementById(i +',' + j).value)
+                );
+            }
+            k++;
+        }
+
+        console.log(stocks);
+        console.log(needs);
+        console.log(matrix);
+    //     const a = [10, 20, 30],
+    // b = [15,20, 25],
+    // c = [[5,3,1],[3,2,4],[4,1,2]],
+    // d = [[5,3,1],[3,2,4],[4,1,2]];
+let M = new Min();
+M.getting(stocks, needs, matrix, matrix2)
+       this.result = M.CloseOrOpen();
+
+
+    }
+    Resulr(){
+        return <div><h1>Результат:  {this.result}</h1></div>
+    }
+
     render() {
-        this.CreateHeaderTable(5);
-        this.CreateRow(5, 5);
-        this.Needs(5);
+        this.CreateHeaderTable(Number(this.props.m));
+        this.CreateRow(Number(this.props.m), Number(this.props.n));
+        this.Needs(Number(this.props.n));
+        let result = this.Resulr()
         return (
             <div className="container">
                 <table className={'table table-bordered'}>
@@ -111,11 +129,8 @@ class Table extends React.Component {
                     </tr>
                     </tbody>
                 </table>
-
-                <button type="submit" className="btn btn-primary" onClick={Send}>Send</button>
-=======
-                <button type="button" className="btn btn-primary">Send</button>
->>>>>>> origin/master
+                <button type="submit" className="btn btn-primary" onClick={this.Send}>Send</button>
+                result
             </div>
         );
     }

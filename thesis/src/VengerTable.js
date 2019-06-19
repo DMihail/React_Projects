@@ -38,8 +38,8 @@ class VengerTable extends React.Component {
 
 
     render() {
-        let m = this.props.m;
-        let n = this.props.n;
+        let m = Number(this.props.m);
+        let n = Number(this.props.n);
         console.log(m, n);
         this.CreateRow(m, n);
 
