@@ -1,11 +1,20 @@
 import React from 'react';
-//import MinElement from './MinElement';
-var Min = require("./MinElement");;
+var Min = require("./MinElement");
 
 
 
 class Table extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            result: undefined,
+            mass: undefined,
+            m: undefined,
+            n: undefined
+        };
+        this.Send = this.Send.bind(this)
+    }
 
     header = [];
    row = [];
@@ -27,11 +36,11 @@ class Table extends React.Component {
     }
 
 
-    CreateRow(m) {
+    CreateRow(m, n) {
         for (let i = 1; i < m + 1; i++) {
 
             // eslint-disable-next-line jsx-a11y/scope
-            this.row.push(<tr scope='row'>{this.CreateColl(m, i)}</tr>)
+            this.row.push(<tr scope='row'>{this.CreateColl(n, i)}</tr>)
         }
     }
 
@@ -69,19 +78,24 @@ class Table extends React.Component {
     }
 
 
-    Send() {
+    Send(event) {
+        event.preventDefault();
+        this.setState({
+            m: Number(this.props.m),
+            n: Number(this.props.n)
+        });
         let stocks = [];
         let needs = [];
         let matrix = [];
         let matrix2 = [];
         let k = 0;
-        for (let i = 1; i < 4; i++) {
+        for (let i = 1; i < this.state.m; i++) {
 
             stocks.push(parseInt(document.getElementById("a" + i ).value));
             needs.push(parseInt(document.getElementById("b" + i ).value));
             matrix.push([]);
             matrix2.push([]);
-            for (let j = 1; j < 4;j++ ) {
+            for (let j = 1; j < this.state.name;j++ ) {
                 matrix[k].push(
                     parseInt(document.getElementById(i +',' + j).value)
                 );
@@ -99,21 +113,30 @@ class Table extends React.Component {
     // b = [15,20, 25],
     // c = [[5,3,1],[3,2,4],[4,1,2]],
     // d = [[5,3,1],[3,2,4],[4,1,2]];
-let M = new Min();
-M.getting(stocks, needs, matrix, matrix2)
-       this.result = M.CloseOrOpen();
-
+        let M = new Min();
+      //  M.getting(a, b, c, d);
+        M.getting(stocks, needs, matrix, matrix2);
+        M.CloseOrOpen();
+        console.log(M.Over());
+        let s = M.Over();
+      this.setState({result: s.zfunc,
+      mass: s.mass
+      })
 
     }
     Resulr(){
-        return <div><h1>Результат:  {this.result}</h1></div>
+        if (this.state.result !== undefined) {
+            return <div className="container"><div><h1>Z =   {this.state.result}</h1></div>
+           </div>
+        }
+
     }
 
     render() {
         this.CreateHeaderTable(Number(this.props.m));
         this.CreateRow(Number(this.props.m), Number(this.props.n));
         this.Needs(Number(this.props.n));
-        let result = this.Resulr()
+        let result =this.Resulr();
         return (
             <div className="container">
                 <table className={'table table-bordered'}>
@@ -130,7 +153,7 @@ M.getting(stocks, needs, matrix, matrix2)
                     </tbody>
                 </table>
                 <button type="submit" className="btn btn-primary" onClick={this.Send}>Send</button>
-                result
+                {result}
             </div>
         );
     }

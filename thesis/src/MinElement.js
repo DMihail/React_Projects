@@ -40,7 +40,7 @@ module.exports = class Min {
             }
             this.Potential();
         }
-        return this.END(this.save);
+
     }
     MinElement(massC, massA, massB){
         let min = 999;
@@ -207,12 +207,15 @@ module.exports = class Min {
 
             }
 
-            console.log(this.save)
+            console.log(this.save);
 
             this.Potential();
         }
     }
-    }
+      Over(){
+        return {mass: this.save, zfunc:this.END(this.c) }
+        }
+};
 
 // const a = [10, 20, 30],
 //     b = [15,20, 25],
