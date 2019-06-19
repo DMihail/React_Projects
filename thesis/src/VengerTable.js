@@ -4,8 +4,6 @@ import React from 'react';
 class VengerTable extends React.Component {
 
     row = [];
-
-
     CreateRow(m) {
         for (let i = 1; i < m + 1; i++) {
             // eslint-disable-next-line jsx-a11y/scope

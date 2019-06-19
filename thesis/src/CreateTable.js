@@ -20,6 +20,7 @@ class Table extends React.Component {
    row = [];
    nedds = [];
    result = null;
+   resultMsss = [];
     CreateHeaderTable(m) {
         for (let i = 0; i < m + 2; i++) {
             if (i === 0) {
@@ -38,8 +39,6 @@ class Table extends React.Component {
 
     CreateRow(m, n) {
         for (let i = 1; i < m + 1; i++) {
-
-            // eslint-disable-next-line jsx-a11y/scope
             this.row.push(<tr scope='row'>{this.CreateColl(n, i)}</tr>)
         }
     }
@@ -68,7 +67,7 @@ class Table extends React.Component {
             }
                 else
                     if (i < n+1) {
-                        this.nedds.push(<td><input type="text" id={'b' + i}/></td>)
+                        this.nedds.push(<td>    <input type="text" id={'b' + i}/></td>)
                     }
                     else {
                         this.nedds.push(<td></td>)
@@ -113,20 +112,37 @@ class Table extends React.Component {
     // b = [15,20, 25],
     // c = [[5,3,1],[3,2,4],[4,1,2]],
     // d = [[5,3,1],[3,2,4],[4,1,2]];
-        let M = new Min();
-      //  M.getting(a, b, c, d);
-        M.getting(stocks, needs, matrix, matrix2);
+            const a = [23, 25, 17],
+        b = [14,10, 16, 10, 15],
+        c = [[4,9,2, 5, 3],[4,6,2,1,8],[6,2,3,4,5]],
+        d = [[4,9,2, 5, 3],[4,6,2,1,8],[6,2,3,4,5]];
+         let M = new Min();
+        M.getting(a, b, c, d);
+       // M.getting(stocks, needs, matrix, matrix2);
         M.CloseOrOpen();
         console.log(M.Over());
         let s = M.Over();
-      this.setState({result: s.zfunc,
-      mass: s.mass
-      })
+      this.setState({result: s.zfunc})
 
+        let coll = [];
+            for (let i = 0 ; i <  s.mass.length; i++ ) {
+                coll = [];
+                for (let j = 0; j < s.mass[i].length; j++){
+                        coll.push(<td>{s.mass[i][j]}</td>)
+                }
+                this.resultMsss.push(<tr>{coll}</tr>)
+            }
     }
     Resulr(){
         if (this.state.result !== undefined) {
-            return <div className="container"><div><h1>Z =   {this.state.result}</h1></div>
+            return <div className="container"><div>
+                <table>
+                    <tbody>
+                    {this.resultMsss}
+                    </tbody>
+                </table>
+
+                <h1>Z =   {this.state.result}</h1></div>
            </div>
         }
 
