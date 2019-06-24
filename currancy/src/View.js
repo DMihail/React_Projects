@@ -1,5 +1,7 @@
 import React from 'react';
 
+const URL = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/';
+
 class View extends React.Component {
     constructor(props) {
         super(props);
@@ -15,13 +17,7 @@ class View extends React.Component {
         };
         this.Percent = this.Percent.bind(this);
     }
-           //  this.setState({
-           //      Price: monet.ask,
-           //      Hour: monet.price.hour,
-           //      Day: monet.price.day,
-           //      Week: monet.price.week,
-           //      Month: monet.price.month
-           // });
+
 
     Percent(event){
             event.preventDefault();
@@ -29,8 +25,25 @@ class View extends React.Component {
         this.setState({percent : event.target.value});
     }
 
+        getBitcoin = async () =>{
+
+          const response = await fetch(URL + 'BTC' + 'USD' );
+              const data =  await response.json();
+              console.log(data)
+             this.setState({
+                 Price: data.ask,
+                 Hour: data.changes.price.hour,
+                 Day: data.changes.price.day,
+                 Week: data.changes.price.week,
+                 Month: data.changes.price.month
+            });
+    }
+
 
     render() {
+        let a = this.getBitcoin;
+        a();
+       // setInterval(a, 1000);
         return (
           <div>
               <table>
@@ -38,7 +51,6 @@ class View extends React.Component {
                   <tr><td>Price</td><td>{this.state.Price}</td></tr>
                       <tr><td>Percent</td><td>
                           <input type="checkbox" name={'percent'} onChange={this.Percent} value={this.state.percent}/>
-                          <input type="checkbox" />
                       </td></tr>
                       <tr><td>Hour</td><td>{this.state.Hour}</td></tr>
                         <tr><td>Day</td><td>{this.state.Day}</td></tr>

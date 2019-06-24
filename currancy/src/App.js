@@ -2,7 +2,7 @@ import React from 'react';
 import CheckCurrency from './CheckCurrency';
 import Viev from  './View';
 
-const URL = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/';
+
 
 class App extends React.Component {
     constructor(props) {
@@ -25,17 +25,12 @@ class App extends React.Component {
     }
 
     render() {
-        let a = this.getBitcoin;
-        setInterval(a, 1000);
-        render()
-        {
             return (
                 <div>
-                    <CheckCurrency/>
+                    <CheckCurrency Currency = {this.Check}/>
                     <Viev/>
                 </div>
             );
         }
-    }
 }
 export default App;
