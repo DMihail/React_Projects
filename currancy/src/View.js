@@ -1,5 +1,7 @@
 import React from 'react';
-
+import bitcoin from './img/bitcoin.png';
+import litecoin from './img/litecoin.png';
+import ethereum from  './img/Ethereum.png';
 const URL = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/';
 
 class View extends React.Component {
@@ -25,11 +27,11 @@ class View extends React.Component {
         this.setState({percent : event.target.value});
     }
 
-        getBitcoin = async () =>{
+        getData = async (name, value) =>{
 
-          const response = await fetch(URL + 'BTC' + 'USD' );
+          const response = await fetch(URL + name + value );
               const data =  await response.json();
-              console.log(data)
+              console.log(data);
              this.setState({
                  Price: data.ask,
                  Hour: data.changes.price.hour,
@@ -37,15 +39,28 @@ class View extends React.Component {
                  Week: data.changes.price.week,
                  Month: data.changes.price.month
             });
-    }
+    };
 
 
     render() {
-        let a = this.getBitcoin;
-        a();
-       // setInterval(a, 1000);
+        this.getData(this.props.name, this.props.currency);
+        console.log(this.props.name);
+        console.log(this.props.currency);
+        let img;
+       switch (this.props.name) {
+           case 'BTC':
+               img = bitcoin;
+                break;
+           case 'LTC':
+               img = litecoin;
+               break;
+           case 'ETH':
+               img = ethereum;
+               break;
+       }
         return (
           <div>
+                <img src={img} alt=""/>
               <table>
                   <tbody>
                   <tr><td>Price</td><td>{this.state.Price}</td></tr>

@@ -2,8 +2,6 @@ import React from 'react';
 import CheckCurrency from './CheckCurrency';
 import Viev from  './View';
 
-
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -28,7 +26,9 @@ class App extends React.Component {
             return (
                 <div>
                     <CheckCurrency Currency = {this.Check}/>
-                    <Viev/>
+                    <Viev currency = {this.state.Currency} name = {'BTC'}/>
+                    <Viev currency = {this.state.Currency} name = {'LTC'}/>
+                    <Viev currency = {this.state.Currency} name = {'ETH'}/>
                 </div>
             );
         }
