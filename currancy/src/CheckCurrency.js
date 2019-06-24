@@ -4,7 +4,11 @@ class CheckCurrency extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+<<<<<<< HEAD
             value: undefined
+=======
+            value: undefined,
+>>>>>>> origin/master
         };
         this.Check = this.Check.bind(this);
     }
@@ -19,7 +23,11 @@ class CheckCurrency extends React.Component {
                 <div>
                     <h1>Select currency to exchange</h1>
                 <label>
+<<<<<<< HEAD
                     <select value={this.state.value} name={'check'}  onChange={this.props.Currency}>
+=======
+                    <select value={this.state.value} name={'check'} onChange={this.Check}>
+>>>>>>> origin/master
                         <option value="USD">USD</option>
                         <option value="EUR">EUR</option>
                         <option value="RUB">RUB</option>
