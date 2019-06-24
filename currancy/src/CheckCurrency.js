@@ -17,7 +17,7 @@ class CheckCurrency extends React.Component {
         return (
             <div className='conteiner'>
                 <div>
-                    <h1>Select currency to exchange</h1>
+                    <h1 style={{color: 'white'}}>Select currency to exchange : </h1>
                 <label>
                     <select value={this.state.value} name={'check'}  onChange={this.props.Currency}>
                         <option value="USD">USD</option>

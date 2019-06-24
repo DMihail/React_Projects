@@ -28,7 +28,6 @@ class View extends React.Component {
     }
 
         getData = async (name, value) =>{
-
           const response = await fetch(URL + name + value );
               const data =  await response.json();
               console.log(data);
@@ -44,8 +43,8 @@ class View extends React.Component {
 
     render() {
         this.getData(this.props.name, this.props.currency);
-        console.log(this.props.name);
-        console.log(this.props.currency);
+        //console.log(this.props.name);
+        //console.log(this.props.currency);
         let img;
        switch (this.props.name) {
            case 'BTC':
@@ -60,19 +59,21 @@ class View extends React.Component {
        }
         return (
           <div>
-                <img src={img} alt=""/>
+                <img src={img} alt="" style={{position: 'absolute'}}/>
+                <div>
               <table>
                   <tbody>
-                  <tr><td>Price</td><td>{this.state.Price}</td></tr>
-                      <tr><td>Percent</td><td>
+                  <tr style={{color: 'white'}}><td><h3>Price</h3></td><td>{this.state.Price}</td></tr>
+                      <tr style={{color: 'white'}}><td>Percent</td><td>
                           <input type="checkbox" name={'percent'} onChange={this.Percent} value={this.state.percent}/>
                       </td></tr>
-                      <tr><td>Hour</td><td>{this.state.Hour}</td></tr>
-                        <tr><td>Day</td><td>{this.state.Day}</td></tr>
-                      <tr><td>Week</td><td>{this.state.Week}</td></tr>
-                  <tr><td>Month</td><td>{this.state.Month}</td></tr>
+                      <tr style={{color: 'gray'}}><td>Hour</td><td>{this.state.Hour}</td></tr>
+                        <tr style={{color: 'gray'}}><td>Day</td><td>{this.state.Day}</td></tr>
+                      <tr style={{color: 'gray'}}><td>Week</td><td>{this.state.Week}</td></tr>
+                  <tr style={{color: 'gray'}}><td>Month</td><td>{this.state.Month}</td></tr>
                   </tbody>
               </table>
+                </div>
           </div>
                 );
         }

@@ -1,6 +1,7 @@
 import React from 'react';
 import CheckCurrency from './CheckCurrency';
 import Viev from  './View';
+import body from './img/body.png'
 
 class App extends React.Component {
     constructor(props) {
@@ -21,14 +22,24 @@ class App extends React.Component {
             Currency: currency
         });
     }
-
+// <div style={{margin: '100px', position: 'absolute'}}>
+//
+// <Viev currency = {this.state.Currency} name = {'LTC'}/>
+// </div>
+// <div style={{margin: '100px', position: 'absolute'}}>
+//
+// <Viev currency = {this.state.Currency} name = {'ETH'}/>
+// </div>
     render() {
             return (
-                <div>
-                    <CheckCurrency Currency = {this.Check}/>
-                    <Viev currency = {this.state.Currency} name = {'BTC'}/>
-                    <Viev currency = {this.state.Currency} name = {'LTC'}/>
-                    <Viev currency = {this.state.Currency} name = {'ETH'}/>
+                <div  class="container" style={{background: body}}>
+                    <div>
+                        <CheckCurrency Currency = {this.Check}/>
+                    </div>
+
+                    <div style={{margin: '50px', position: 'absolute' }}>
+                        <Viev currency = {this.state.Currency} name = {'BTC'} />
+                    </div>
                 </div>
             );
         }
