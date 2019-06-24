@@ -1,0 +1,69 @@
+/*.Price {*/
+/*    font-size: 10px;*/
+/*    font-family: "Myriad Pro", serif;*/
+/*    line-height: 4;*/
+/*    z-index: 60;*/
+/*    color: white;*/
+/*    -moz-transform: matrix( 2.2203959946496,0,0,2.2203959946496,0,0);*/
+/*    -webkit-transform: matrix( 2.2203959946496,0,0,2.2203959946496,0,0);*/
+/*    -ms-transform: matrix( 2.2203959946496,0,0,2.2203959946496,0,0);*/
+/*}*/
+
+/*.Percent_change {*/
+/*    font-size: 6px;*/
+/*    font-family: "Myriad Pro", serif;*/
+/*    line-height: 4;*/
+/*    -moz-transform: matrix( 2.2203959946496,0,0,2.2203959946496,0,0);*/
+/*    -webkit-transform: matrix( 2.2203959946496,0,0,2.2203959946496,0,0);*/
+/*    -ms-transform: matrix( 2.2203959946496,0,0,2.2203959946496,0,0);*/
+/*    z-index: 66;*/
+/*    color: white;*/
+/*}*/
+/*.Other {*/
+/*    font-size: 6px;*/
+/*    font-family: "Myriad Pro", serif;*/
+/*    color:gray;*/
+/*    line-height: 3;*/
+/*    -moz-transform: matrix( 2.2203959946496,0,0,2.2203959946496,0,0);*/
+/*    -webkit-transform: matrix( 2.2203959946496,0,0,2.2203959946496,0,0);*/
+/*    -ms-transform: matrix( 2.2203959946496,0,0,2.2203959946496,0,0);*/
+/*    z-index: 67;*/
+/*}*/
+/*.Pdata {*/
+/*    font-size: 10px;*/
+/*    font-family: "Myriad Pro", serif;*/
+/*    color: rgb(112, 196, 70);*/
+/*    line-height: 3;*/
+/*    -moz-transform: matrix( 1.72440639832385,0,0,1.72440639832385,0,0);*/
+/*    -webkit-transform: matrix( 1.72440639832385,0,0,1.72440639832385,0,0);*/
+/*    -ms-transform: matrix( 1.72440639832385,0,0,1.72440639832385,0,0);*/
+/*    z-index: 64;*/
+/*}*/
+/*.data {*/
+/*    font-size: 8px;*/
+/*    font-family: "Myriad Pro", serif;*/
+/*    color: rgb(112, 196, 70);*/
+/*    line-height: 3;*/
+/*    -moz-transform: matrix( 1.72440639832385,0,0,1.72440639832385,0,0);*/
+/*    -webkit-transform: matrix( 1.72440639832385,0,0,1.72440639832385,0,0);*/
+/*    -ms-transform: matrix( 1.72440639832385,0,0,1.72440639832385,0,0);*/
+/*    z-index: 64;*/
+/*}*/
+/*.undata {*/
+/*    font-size: 9px;*/
+/*    font-family: "Myriad Pro", serif;*/
+/*    color: rgb(112, 196, 70);*/
+/*    line-height: 3;*/
+/*    -moz-transform: matrix( 1.72440639832385,0,0,1.72440639832385,0,0);*/
+/*    -webkit-transform: matrix( 1.72440639832385,0,0,1.72440639832385,0,0);*/
+/*    -ms-transform: matrix( 1.72440639832385,0,0,1.72440639832385,0,0);*/
+/*    z-index: 64;*/
+/*}*/
+
+.img_data{
+   position: absolute;
+    top: 180px;
+    color: white;
+    font-size: 15px;
+    font-family: "Myriad Pro", serif;
+}

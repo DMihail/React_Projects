@@ -1,9 +1,9 @@
 import React from 'react';
+import style from './viev.css'
 import bitcoin from './img/bitcoin.png';
 import litecoin from './img/litecoin.png';
 import ethereum from  './img/Ethereum.png';
 const URL = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/';
-
 class View extends React.Component {
     constructor(props) {
         super(props);
@@ -40,7 +40,6 @@ class View extends React.Component {
             });
     };
 
-
     render() {
         this.getData(this.props.name, this.props.currency);
         //console.log(this.props.name);
@@ -57,20 +56,21 @@ class View extends React.Component {
                img = ethereum;
                break;
        }
+
         return (
           <div>
-                <img src={img} alt="" style={{position: 'absolute'}}/>
-                <div>
+               <img src={img} alt="" style={{position: 'absolute'}}/>
+                <div className={'img_data'}>
               <table>
                   <tbody>
-                  <tr style={{color: 'white'}}><td><h3>Price</h3></td><td>{this.state.Price}</td></tr>
-                      <tr style={{color: 'white'}}><td>Percent</td><td>
+                  <tr><td className={'Price'} style={style}>Price :</td><td className={'Pdata'} style={style}>{this.state.Price}</td></tr>
+                      <tr ><td className={'Percent_change'} style={style}>Percent change</td><td>
                           <input type="checkbox" name={'percent'} onChange={this.Percent} value={this.state.percent}/>
                       </td></tr>
-                      <tr style={{color: 'gray'}}><td>Hour</td><td>{this.state.Hour}</td></tr>
-                        <tr style={{color: 'gray'}}><td>Day</td><td>{this.state.Day}</td></tr>
-                      <tr style={{color: 'gray'}}><td>Week</td><td>{this.state.Week}</td></tr>
-                  <tr style={{color: 'gray'}}><td>Month</td><td>{this.state.Month}</td></tr>
+                      <tr><td className={'Other'} style={style}>Hour change</td><td className={'data'} style={style}>{this.state.Hour}</td></tr>
+                        <tr><td className={'Other'} style={style}>Day change</td><td className={'data'} style={style}>{this.state.Day}</td></tr>
+                      <tr><td className={'Other'} style={style}>Week change</td><td className={'data'} style={style}>{this.state.Week}</td></tr>
+                  <tr><td className={'Other'} style={style}>Month change</td><td className={'data'} style={style}>{this.state.Month}</td></tr>
                   </tbody>
               </table>
                 </div>

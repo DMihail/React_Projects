@@ -33,12 +33,15 @@ class App extends React.Component {
     render() {
             return (
                 <div  class="container" style={{background: body}}>
-                    <div>
+                    <div className="row">
+                        <div className="col"><div>
                         <CheckCurrency Currency = {this.Check}/>
                     </div>
 
                     <div style={{margin: '50px', position: 'absolute' }}>
                         <Viev currency = {this.state.Currency} name = {'BTC'} />
+                    </div>
+                </div>
                     </div>
                 </div>
             );
