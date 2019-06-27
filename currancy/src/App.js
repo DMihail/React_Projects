@@ -2,7 +2,7 @@ import React from 'react';
 import CheckCurrency from './CheckCurrency';
 import Viev from  './View';
 import body from './img/body.png'
-
+import bitcoin from './img/bitcoin.png';
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -36,11 +36,11 @@ class App extends React.Component {
                     <div className="row">
                         <div className="col"><div>
                         <CheckCurrency Currency = {this.Check}/>
-                    </div>
-
-                    <div style={{margin: '50px', position: 'absolute' }}>
+                    <div style={{margin: '100px', position: 'absolute' }}>
+                        <img src={bitcoin} alt="" />
                         <Viev currency = {this.state.Currency} name = {'BTC'} />
                     </div>
+                        </div>
                 </div>
                     </div>
                 </div>

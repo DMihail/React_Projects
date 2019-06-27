@@ -56,10 +56,10 @@ class View extends React.Component {
                img = ethereum;
                break;
        }
-
+//  <img src={img} alt="" style={{position: 'absolute'}}/>
         return (
           <div>
-               <img src={img} alt="" style={{position: 'absolute'}}/>
+
                 <div className={'img_data'}>
               <table>
                   <tbody>
