@@ -3,12 +3,14 @@ import CheckCurrency from './CheckCurrency';
 import Viev from  './View';
 import style from './viev.css';
 import body from './img/body.png'
+import ethereum from './img/Ethereum.png';
+import litecoin from  './img/litecoin.png';
 import bitcoin from './img/bitcoin.png';
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            Currency: undefined
+            Currency: 'USD'
         };
         this.Check = this.Check.bind(this)
     }
@@ -23,13 +25,13 @@ class App extends React.Component {
             Currency: currency
         });
     }
-// <div style={{margin: '100px', position: 'absolute'}}>
-//
-// <Viev currency = {this.state.Currency} name = {'LTC'}/>
+// <div style={{margin: '100px', position: 'relative' }}>
+// <img src={litecoin} alt="" className = 'viev' style={style}/>
+// <Viev currency = {this.state.Currency} name = {'LTC'} />
 // </div>
-// <div style={{margin: '100px', position: 'absolute'}}>
-//
-// <Viev currency = {this.state.Currency} name = {'ETH'}/>
+// <div style={{margin: '100px', position: 'relative' }}>
+// <img src={ethereum} alt="" className = 'viev' style={style}/>
+// <Viev currency = {this.state.Currency} name = {'ETH'} />
 // </div>
     render() {
             return (
@@ -37,11 +39,9 @@ class App extends React.Component {
                     <div className="row">
                         <div className="col"><div>
                         <CheckCurrency Currency = {this.Check}/>
-                    <div style={{margin: '100px', position: 'absolute' }}>
+                    <div style={{margin: '100px', position: 'relative' }}>
                         <img src={bitcoin} alt="" className = 'viev' style={style}/>
                         <Viev currency = {this.state.Currency} name = {'BTC'} />
-
-
                     </div>
                         </div>
                 </div>

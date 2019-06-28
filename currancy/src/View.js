@@ -8,12 +8,12 @@ class View extends React.Component {
         super(props);
         this.state = {
             Price: undefined,
-            Percent: undefined,
+            Percent: false,
             Hour: undefined,
             Day: undefined,
             Week: undefined,
             Month: undefined,
-            data:undefined
+            data:undefined,
         };
         this.Percent = this.Percent.bind(this);
 
@@ -23,21 +23,37 @@ class View extends React.Component {
 
     Percent(event){
             event.preventDefault();
-             console.log(event.target.value);
-        this.setState({percent : event.target.value});
+            if (event.target.checked) {
+                this.setState({Percent : true});
+            }else{
+                this.setState({Percent : false});
+            }
+             console.log(event.target.checked);
+        this.setState({Percent : event.target.checked});
     }
 
     getData = async (name, value) => {
           const response = await fetch(URL + name + value );
               const data =  await response.json();
               console.log(data);
-             this.setState({
-                 Price: data.ask,
-                 Hour: data.changes.price.hour,
-                 Day: data.changes.price.day,
-                 Week: data.changes.price.week,
-                 Month: data.changes.price.month
-            });
+                if (this.state.Percent === true) {
+                    this.setState({
+                        Price: data.ask,
+                        Hour: data.changes.percent.hour,
+                        Day: data.changes.percent.day,
+                        Week: data.changes.percent.week,
+                        Month: data.changes.percent.month
+                    });
+                }else {
+                    this.setState({
+                        Price: data.ask,
+                        Hour: data.changes.price.hour,
+                        Day: data.changes.price.day,
+                        Week: data.changes.price.week,
+                        Month: data.changes.price.month
+                    });
+                }
+
     };
 
     CreateTable(){
@@ -45,37 +61,47 @@ class View extends React.Component {
         let massName = ['Price : ', 'Percent change : ', 'Hour change : ', 'Day change : ', 'Week change : ', 'Month change : '];
         let massData = [this.state.Price,  this.state.Hour, this.state.Day, this.state.Week, this.state.Month];
         for (let i = 0; i < massName.length; i++){
-            if (i === 1) {
+            if (massName[i] === 'Percent change : ') {
                 this.Table.push(<tr><td className = 'data' style={style}>{massName[i]}</td><td style={style}><input
-                    type='checkbox'/></td></tr>)
-            }
-            if (massData[i] < 0){
-                this.Table.push(<tr><td className = 'data' style={style}>{massName[i]}</td><td className = 'negative' style={style}>{massData[i] + ' ' + this.state.data}</td></tr>)
+                    type='checkbox' defaultChecked={this.state.Percent} onChange={this.Percent}/></td></tr>)
             }else {
-                this.Table.push(<tr><td className = 'data' style={style}>{massName[i]}</td><td className = 'positive' style={style}>{massData[i] + ' ' + this.state.data}</td></tr>)
+                if (massData[i] < 0) {
+                    this.Table.push(<tr>
+                        <td className='data' style={style}>{massName[i]}</td>
+                        <td className='negative' style={style}>{massData[i] + ' ' + this.state.data}</td>
+                    </tr>)
+                } else {
+                    this.Table.push(<tr>
+                        <td className='data' style={style}>{massName[i]}</td>
+                        <td className='positive' style={style}>{massData[i] + ' ' + this.state.data}</td>
+                    </tr>)
+                }
             }
         }
     }
 
 
     render() {
-
+        console.log(this.state.Percent);
         this.getData(this.props.name, this.props.currency);
-       switch (this.props.currency) {
-           case 'USD':
-               this.state.data = '$';
-                break;
-           case 'EUR':
-               this.state.data = String.fromCharCode(8364);
-               break;
-           case 'RUB':
-               this.state.data = String.fromCharCode(8381);
-               break;
-           case 'GBP':
-               this.state.data = String.fromCharCode(163);
-               break;
-       }
-
+        if (this.state.Percent === true){
+            this.state.data = '%';
+        }else {
+            switch (this.props.currency) {
+                case 'USD':
+                    this.state.data = '$';
+                    break;
+                case 'EUR':
+                    this.state.data = String.fromCharCode(8364);
+                    break;
+                case 'RUB':
+                    this.state.data = String.fromCharCode(8381);
+                    break;
+                case 'GBP':
+                    this.state.data = String.fromCharCode(163);
+                    break;
+            }
+        }
         this.CreateTable();
         return (
           <div>
