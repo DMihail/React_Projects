@@ -1,6 +1,7 @@
 import React from 'react';
 import CheckCurrency from './CheckCurrency';
 import Viev from  './View';
+import style from './viev.css';
 import body from './img/body.png'
 import bitcoin from './img/bitcoin.png';
 class App extends React.Component {
@@ -37,8 +38,10 @@ class App extends React.Component {
                         <div className="col"><div>
                         <CheckCurrency Currency = {this.Check}/>
                     <div style={{margin: '100px', position: 'absolute' }}>
-                        <img src={bitcoin} alt="" />
+                        <img src={bitcoin} alt="" className = 'viev' style={style}/>
                         <Viev currency = {this.state.Currency} name = {'BTC'} />
+
+
                     </div>
                         </div>
                 </div>

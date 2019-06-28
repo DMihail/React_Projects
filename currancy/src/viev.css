@@ -1,23 +1,24 @@
 .data{
-   position: absolute;
-    top: 180px;
+    position: relative;
+    bottom: 150px;
+    left: 25px;
     color: white;
     font-size: 15px;
     font-family: "Myriad Pro", serif;
 }
 
 .positive{
-    position: absolute;
-    top: 180px;
     color: green;
     font-size: 15px;
     font-family: "Myriad Pro", serif;
 }
 
 .negative{
-    position: absolute;
-    top: 180px;
-    color: green;
+    color: red;
     font-size: 15px;
     font-family: "Myriad Pro", serif;
 }
+.viev{
+position: relative;
+}
+
