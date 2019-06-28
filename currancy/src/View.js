@@ -63,8 +63,8 @@ class View extends React.Component {
         let massData = [this.state.Price,  this.state.Hour, this.state.Day, this.state.Week, this.state.Month];
         for (let i = 0; i < massName.length; i++){
             if (massName[i] === 'Percent change : ') {
-                this.Table.push(<tr><td className = {massClassName[i]} style={style}><span for="check">{massName[i]}</span></td><td style={style} for = 'check' ><input
-                    type='checkbox' checked={this.state.Percent} id = 'check' onChange={this.Percent}/></td></tr>)
+                this.Table.push(<tr><td className = {massClassName[i]} style={style}>{massName[i]}</td><td><label for="check"><input
+                    type='checkbox' checked={this.state.Percent} id = 'check' onChange={this.Percent}/><i for="check"></i> </label></td></tr>)
             }else {
                 if (massData[i] < 0) {
                     this.Table.push(<tr>
@@ -84,7 +84,7 @@ class View extends React.Component {
 
     render() {
         console.log(this.state.Percent);
-        this.getData(this.props.name, this.props.currency);
+    //    this.getData(this.props.name, this.props.currency);
         if (this.state.Percent === true){
             this.state.data = '%';
         }else {

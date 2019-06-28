@@ -58,9 +58,47 @@
 
 }
 .viev{
-        position: relative;
+    position: relative;
 }
 
-input {
+input[type = 'checkbox'] {
+    display: none;
+}
 
+label{
+    padding: 40px;
+    position: absolute;
+    top: -155px;
+    left: 210px;
+}
+
+label::before{
+    z-index: 71;
+    background-color: rgb(196, 196, 196);
+    box-shadow: inset 1px 3px 7px 0 rgba(27, 36, 40, 0.56);
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+    border-radius: 30px;
+}
+
+i {
+    content: '';
+    position: relative;
+    background-image: url("img/i.png");
+    top: -2px;
+}
+i::before {
+    border-radius: 30px;
+    content: '';
+    position: absolute;
+    background-image: url("img/i.png");
+    width: 23px;
+    height: 23px;
+    left: -40px;
+}
+
+input:checked+i:before{
+    left: -15px;
 }
