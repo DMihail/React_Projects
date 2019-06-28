@@ -59,20 +59,21 @@ class View extends React.Component {
     CreateTable(){
         this.Table = [];
         let massName = ['Price : ', 'Percent change : ', 'Hour change : ', 'Day change : ', 'Week change : ', 'Month change : '];
+        let massClassName = ['Price', 'Percent', 'data', 'data', 'data', 'data'];
         let massData = [this.state.Price,  this.state.Hour, this.state.Day, this.state.Week, this.state.Month];
         for (let i = 0; i < massName.length; i++){
             if (massName[i] === 'Percent change : ') {
-                this.Table.push(<tr><td className = 'data' style={style}>{massName[i]}</td><td style={style}><input
-                    type='checkbox' defaultChecked={this.state.Percent} onChange={this.Percent}/></td></tr>)
+                this.Table.push(<tr><td className = {massClassName[i]} style={style}><span for="check">{massName[i]}</span></td><td style={style} for = 'check' ><input
+                    type='checkbox' checked={this.state.Percent} id = 'check' onChange={this.Percent}/></td></tr>)
             }else {
                 if (massData[i] < 0) {
                     this.Table.push(<tr>
-                        <td className='data' style={style}>{massName[i]}</td>
-                        <td className='negative' style={style}>{massData[i] + ' ' + this.state.data}</td>
+                        <td className={massClassName[i]} style={style}>{massName[i]}</td>
+                        <td className = 'negative' style={style}>{massData[i] + ' ' + this.state.data}</td>
                     </tr>)
                 } else {
                     this.Table.push(<tr>
-                        <td className='data' style={style}>{massName[i]}</td>
+                        <td className = {massClassName[i]} style={style}>{massName[i]}</td>
                         <td className='positive' style={style}>{massData[i] + ' ' + this.state.data}</td>
                     </tr>)
                 }

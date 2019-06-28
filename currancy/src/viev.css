@@ -1,24 +1,66 @@
 .data{
     position: relative;
     bottom: 150px;
-    left: 25px;
+    left: 35px;
+    color: gray;
+    font-size: 15px;
+    font-family: "Myriad Pro", serif;
+    z-index: 63;
+}
+
+.Price{
+    position: relative;
+    bottom: 150px;
+    left: 35px;
+    color: white;
+    font-size: 25px;
+    font-family: "Myriad Pro", serif;
+    z-index: 63;
+}
+.PriceData{
+    position: relative;
+    bottom: 150px;
+    left: 35px;
+    color: white;
+    font-size: 25px;
+    font-family: "Myriad Pro", serif;
+    z-index: 63;
+}
+.Percent{
+    position: relative;
+    bottom: 150px;
+    left: 35px;
     color: white;
     font-size: 15px;
     font-family: "Myriad Pro", serif;
+    z-index: 63;
 }
 
+
 .positive{
+    left: 100px;
+    position: relative;
+    bottom: 150px;
     color: green;
     font-size: 15px;
     font-family: "Myriad Pro", serif;
+    z-index: 63;
 }
 
 .negative{
+    left: 100px;
+    position: relative;
+    bottom: 150px;
     color: red;
     font-size: 15px;
     font-family: "Myriad Pro", serif;
+    z-index: 63;
+
 }
 .viev{
-position: relative;
+        position: relative;
 }
 
+input {
+
+}
