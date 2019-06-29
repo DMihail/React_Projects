@@ -95,7 +95,6 @@ input[type = 'checkbox'] {
     height: 15px;
     border-radius: 30px;
 }
-
 i {
     content: '';
     position: relative;
@@ -111,10 +110,10 @@ i::before {
     height: 23px;
     left: -40px;
 }
-
 input:checked+i:before{
-    left: -15px;
-}
+      left: -15px;
+  }
+
 .header{
     border-width: 1px;
     background: rgba(255, 255, 255, 0.01);
