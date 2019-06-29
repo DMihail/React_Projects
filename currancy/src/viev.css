@@ -59,19 +59,19 @@
 .bitcoin{
     position: absolute;
     left: 930px;
-    top: 200px;
+    top: 140px;
 }
 
 .litecoin{
     position: absolute;
     left: 580px;
-    top: 200px;
+    top: 140px;
 }
 
 .ethereum{
     position: absolute;
     left: 230px;
-    top: 200px;
+    top: 140px;
 }
 
 input[type = 'checkbox'] {
@@ -117,20 +117,20 @@ input:checked+i:before{
 }
 .header{
     border-width: 1px;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.01);
     border-color: rgba(146, 232, 254, 0.1);
     border-style: solid;
     border-radius: 10px;
     position: absolute;
     left: 267px;
-    top: 30px;
     width: 985px;
     height: 98px;
     z-index: 80;
 }
 
 .header h1{
-    left: 100px;
+    top: 20px;
+    left: 120px;
     font-size: 32px;
     font-family: "Myriad Pro", serif;
     color: rgb(255, 255, 255);
@@ -140,7 +140,7 @@ input:checked+i:before{
 .select{
     position: relative;
     margin-bottom: 1rem;
-    left: 600px;
+    left: 760px;
     top: 20px;
 }
 

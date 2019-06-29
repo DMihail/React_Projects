@@ -25,14 +25,6 @@ class App extends React.Component {
             Currency: currency
         });
     }
-// <div style={{margin: '100px', position: 'relative' }}>
-// <img src={litecoin} alt="" className = 'viev' style={style}/>
-// <Viev currency = {this.state.Currency} name = {'LTC'} />
-// </div>
-// <div style={{margin: '100px', position: 'relative' }}>
-// <img src={ethereum} alt="" className = 'viev' style={style}/>
-// <Viev currency = {this.state.Currency} name = {'ETH'} />
-// </div>
     render() {
             return (
                 <div  class="container" style={{background: body, margin: '50px'}}>
