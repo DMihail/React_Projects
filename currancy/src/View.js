@@ -58,31 +58,26 @@ class View extends React.Component {
 
     CreateTable(){
         this.Table = [];
-        let massName = ['Price : ', 'Percent change : ', 'Hour change : ', 'Day change : ', 'Week change : ', 'Month change : '];
-        let massClassName = ['Price', 'Percent', 'data', 'data', 'data', 'data'];
+        let massName = ['Price : ', 'Hour change : ', 'Day change : ', 'Week change : ', 'Month change : '];
         let massData = [this.state.Price,  this.state.Hour, this.state.Day, this.state.Week, this.state.Month];
         for (let i = 0; i < massName.length; i++){
-            if (massName[i] === 'Percent change : ') {
-                this.Table.push(<tr><td className = {massClassName[i]} style={style}>{massName[i]}</td><td><label for="check" className = 'clicck'><input
-                    type='checkbox' checked={this.state.Percent} id = 'check' onChange={this.Percent}/><i for="check"></i> </label></td></tr>)
-            }else {
                 if (massData[i] < 0) {
                     this.Table.push(<tr>
-                        <td className={massClassName[i]} style={style}>{massName[i]}</td>
+                        <td className = 'data' style={style}>{massName[i]}</td>
                         <td className = 'negative' style={style}>{massData[i] + ' ' + this.state.data}</td>
                     </tr>)
                 } else {
                     this.Table.push(<tr>
-                        <td className = {massClassName[i]} style={style}>{massName[i]}</td>
+                        <td className = 'data' style={style}>{massName[i]}</td>
                         <td className='positive' style={style}>{massData[i] + ' ' + this.state.data}</td>
                     </tr>)
-                }
             }
         }
     }
 
 
     render() {
+        let currency;
         console.log(this.state.Percent);
       //  this.getData(this.props.name, this.props.currency);
         if (this.state.Percent === true){
@@ -91,15 +86,19 @@ class View extends React.Component {
             switch (this.props.currency) {
                 case 'USD':
                     this.state.data = '$';
+                    currency = '$';
                     break;
                 case 'EUR':
                     this.state.data = String.fromCharCode(8364);
+                    currency = String.fromCharCode(8364);
                     break;
                 case 'RUB':
                     this.state.data = String.fromCharCode(8381);
+                    currency = String.fromCharCode(8381);
                     break;
                 case 'GBP':
                     this.state.data = String.fromCharCode(163);
+                    currency = String.fromCharCode(163);
                     break;
             }
         }
@@ -109,6 +108,15 @@ class View extends React.Component {
                 <div className={'img_data'}>
               <table style={{position: 'absolute'}}>
                   <tbody>
+                  <tr>
+                  <td className = 'Price' style={style}>Price : </td>
+                  <td className = 'PriceData' style={style}>{currency + ' ' + this.state.Price}</td>
+                  </tr>
+                  <tr>
+                      <td className='Percent' style={style}>Percent change :</td>
+                      <td><label htmlFor="check" className='clicck'><input
+                          type='checkbox' checked={this.state.Percent} id='check' onChange={this.Percent}/><i for="check"/> </label></td>
+                  </tr>
                   {this.Table}
                   </tbody>
               </table>

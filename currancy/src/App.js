@@ -37,15 +37,26 @@ class App extends React.Component {
             return (
                 <div  class="container" style={{background: body, margin: '50px'}}>
                     <div className="row">
+                        <div>
+                            <CheckCurrency Currency = {this.Check}/>
+                        </div>
                         <div className="col">
-                            <div>
-                        <CheckCurrency Currency = {this.Check}/>
-                            </div>
-                    <div >
-                        <img src={bitcoin} alt="" className = 'viev' style={style}/>
+                    <div className = 'bitcoin' >
+                        <img src={bitcoin} alt="" />
                         <Viev currency = {this.state.Currency} name = {'BTC'} />
                     </div>
-
+                            <div className= ' col'>
+                                <div className = 'litecoin' >
+                                    <img src={litecoin} alt="" />
+                                    <Viev currency = {this.state.Currency} name = {'LTC'} />
+                                </div>
+                            </div>
+                            <div className= ' col'>
+                                <div className = 'ethereum' >
+                                    <img src={ethereum} alt="" />
+                                    <Viev currency = {this.state.Currency} name = {'ETH'} />
+                                </div>
+                            </div>
                 </div>
                     </div>
                 </div>
