@@ -65,14 +65,14 @@ input[type = 'checkbox'] {
     display: none;
 }
 
-label{
+.clicck{
     padding: 40px;
     position: absolute;
     top: -155px;
     left: 210px;
 }
 
-label::before{
+.clicck::before{
     z-index: 71;
     background-color: rgb(196, 196, 196);
     box-shadow: inset 1px 3px 7px 0 rgba(27, 36, 40, 0.56);
@@ -101,4 +101,55 @@ i::before {
 
 input:checked+i:before{
     left: -15px;
+}
+.header{
+    border-width: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(146, 232, 254, 0.1);
+    border-style: solid;
+    border-radius: 10px;
+    position: absolute;
+    left: 467px;
+    top: 70px;
+    width: 983px;
+    height: 96px;
+    z-index: 80;
+}
+.header h1{
+    left: 100px;
+    font-size: 32px;
+    font-family: "Myriad Pro", serif;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 84;
+}
+.select{
+    position: relative;
+    margin-bottom: 1rem;
+    left: 600px;
+    top: 20px;
+}
+
+.select:after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 5px 0 5px;
+    border-color: #91e6fe transparent transparent transparent;
+    left: 150px;
+    position: relative;
+    top: -25px;
+}
+
+.select select{
+    padding: .75rem 5rem;
+    background: #1e252b;
+    border: solid 1px rgb(146, 232, 254);
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: "Myriad Pro", serif;
+    color: white;
+    border-radius: 5px;
 }
