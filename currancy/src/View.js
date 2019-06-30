@@ -13,10 +13,9 @@ class View extends React.Component {
             Day: undefined,
             Week: undefined,
             Month: undefined,
-            data:undefined,
+            data:undefined
         };
         this.Percent = this.Percent.bind(this);
-
     }
     Table = [];
 
@@ -28,8 +27,6 @@ class View extends React.Component {
             }else{
                 this.setState({Percent : false});
             }
-             console.log(event.target.checked);
-        this.setState({Percent : event.target.checked});
     }
 
     getData = async (name, value) => {
@@ -78,7 +75,7 @@ class View extends React.Component {
 
     render() {
         let currency;
-      //  console.log(this.state.Percent);
+      // console.log(this.state.Percent);
        // this.getData(this.props.name, this.props.currency);
         if (this.state.Percent === true){
             currency = this.state.data;
@@ -115,8 +112,8 @@ class View extends React.Component {
                   </tr>
                   <tr>
                       <td className='Percent' style={style}>Percent change :</td>
-                      <td><label htmlFor="check" className='clicck'><input
-                          type='checkbox' checked={this.state.Percent} id='check' onChange={this.Percent}/><i for="check"/> </label></td>
+                      <td><label className='clicck'><input
+                          type='checkbox' checked={this.state.Percent} id='check' onChange={this.Percent.bind(this)}/><i for="check"/> </label></td>
                   </tr>
                   {this.Table}
                   </tbody>
