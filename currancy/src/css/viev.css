@@ -98,14 +98,14 @@ input[type = 'checkbox'] {
 i {
     content: '';
     position: relative;
-    background-image: url("img/i.png");
+    background-image: url("../img/i.png");
     top: -2px;
 }
 i::before {
     border-radius: 30px;
     content: '';
     position: absolute;
-    background-image: url("img/i.png");
+    background-image: url("../img/i.png");
     width: 23px;
     height: 23px;
     left: -40px;

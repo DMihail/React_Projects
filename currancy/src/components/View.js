@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './viev.css';
+import style from '../css/viev.css';
 
 const URL = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/';
 
@@ -76,7 +76,7 @@ class View extends React.Component {
     render() {
         let currency;
       // console.log(this.state.Percent);
-       // this.getData(this.props.name, this.props.currency);
+        //this.getData(this.props.name, this.props.currency);
         if (this.state.Percent === true){
             currency = this.state.data;
             this.state.data = '%';

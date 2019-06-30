@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './viev.css';
+import style from '../css/viev.css';
 
 class CheckCurrency extends React.Component {
     constructor(props) {
