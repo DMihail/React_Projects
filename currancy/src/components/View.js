@@ -76,29 +76,36 @@ class View extends React.Component {
     render() {
         let currency;
       // console.log(this.state.Percent);
-        //this.getData(this.props.name, this.props.currency);
-        if (this.state.Percent === true){
-            currency = this.state.data;
-            this.state.data = '%';
-       }else {
+        this.getData(this.props.name, this.props.currency);
             switch (this.props.currency) {
                 case 'USD':
                     this.state.data = '$';
+                    if (this.state.Percent) {
+                        this.state.data = '%';
+                    }
                     currency = '$';
                     break;
                 case 'EUR':
                     this.state.data = String.fromCharCode(8364);
                     currency = String.fromCharCode(8364);
+                    if (this.state.Percent) {
+                        this.state.data = '%';
+                    }
                     break;
                 case 'RUB':
                     this.state.data = String.fromCharCode(8381);
                     currency = String.fromCharCode(8381);
+                    if (this.state.Percent) {
+                        this.state.data = '%';
+                    }
                     break;
                 case 'GBP':
                     this.state.data = String.fromCharCode(163);
                     currency = String.fromCharCode(163);
+                    if (this.state.Percent) {
+                        this.state.data = '%';
+                    }
                     break;
-            }
         }
         this.CreateTable();
         return (
