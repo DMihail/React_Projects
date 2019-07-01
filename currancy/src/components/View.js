@@ -9,11 +9,11 @@ class View extends React.Component {
         this.state = {
             Price: undefined,
             Percent: false,
-            Hour: undefined,
-            Day: undefined,
-            Week: undefined,
-            Month: undefined,
-            data:undefined
+            Hour: null,
+            Day: null,
+            Week: null,
+            Month: null,
+            data: null
         };
         this.Percent = this.Percent.bind(this);
     }
@@ -55,8 +55,8 @@ class View extends React.Component {
 
     CreateTable(){
         this.Table = [];
-        let massName = ['Price : ', 'Hour change : ', 'Day change : ', 'Week change : ', 'Month change : '];
-        let massData = [this.state.Price,  this.state.Hour, this.state.Day, this.state.Week, this.state.Month];
+        let massName = [ 'Hour change : ', 'Day change : ', 'Week change : ', 'Month change : '];
+        let massData = [ this.state.Hour, this.state.Day, this.state.Week, this.state.Month];
         for (let i = 0; i < massName.length; i++){
                 if (massData[i] < 0) {
                     this.Table.push(<tr>
@@ -75,8 +75,7 @@ class View extends React.Component {
 
     render() {
         let currency;
-      // console.log(this.state.Percent);
-        this.getData(this.props.name, this.props.currency);
+        //this.getData(this.props.name, this.props.currency);
             switch (this.props.currency) {
                 case 'USD':
                     this.state.data = '$';
