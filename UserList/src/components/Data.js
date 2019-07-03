@@ -5,41 +5,28 @@ import style from '../style/Data.css';
 class Data extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-        avatar: null,
-        firstName: null,
-        lastName: null,
-        company: null,
-        title: null,
-        email: null,
-        phone: null,
-        street:  null,
-        city: null,
-        zipCode: null,
-        country: null
-    };
   }
 
 
-  render(){
 
+  render(){
     return(
         <div className = 'data'>
-              <h3>General</h3>
-              <p>FirstName: </p>
-              <p>LastName: </p>
-              <img src = {client[0]['general']['avatar']}  style = {style} className = 'imgData' />
-              <h3>Job</h3>
-              <p>Company: </p>
-              <p>Title: </p>
-              <h3>Contact</h3>
-              <p>Email: </p>
-              <p>Phone: </p>
-              <h3>Address</h3>
-              <p>Street: </p>
-              <p>City: </p>
-              <p>ZipCode: </p>
-              <p>Country: </p>
+          <h3>General</h3>
+          <p>FirstName: {this.props.firstName} </p>
+          <p>LastName: {this.props.lastName}</p>
+          <img src = {this.props.avatar}  style = {style} className = 'imgData' />
+            <h3>Job</h3>
+            <p>Company: {this.props.company}</p>
+            <p>Title: {this.props.title}</p>
+            <h3>Contact</h3>
+            <p>Email: {this.props.email}</p>
+            <p>Phone: {this.props.phone}</p>
+            <h3>Address</h3>
+            <p>Street: {this.props.street}</p>
+            <p>City: {this.props.citi}</p>
+            <p>ZipCode: {this.props.zipCode}</p>
+            <p>Country: {this.props.country}</p>
         </div>
 
     );
