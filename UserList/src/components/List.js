@@ -1,18 +1,23 @@
 import React from 'react';
 import client from './clients.json';
-
+import style from '../style/List.css';
 
 class List extends React.Component {
   // constructor() {
   //
   // }
-   AddList(){
+
+  Log(event){
+  event.preventDefault();
+  console.log(event.target.id);
+  }
+   AddList(e){
      let MassList = [];
     for (var key in client) {
-         MassList.push(<li>
-           <p>FirstName:  {client[key]['general']['firstName']}</p>
-           <p>LastName:  {client[key]['general']['lastName']}</p>
-           <img src = {client[key]['general']['avatar']} />
+         MassList.push(<li id = {client[key]['general']['lastName']} onClick = {this.props.check} >
+          <img src = {client[key]['general']['avatar']}  style = {style} />
+           FirstName:  {client[key]['general']['firstName']}
+           LastName:  {client[key]['general']['lastName']}
           </li>)
       }
       return MassList;
@@ -24,7 +29,7 @@ class List extends React.Component {
         <div>
 
           <ul>
-          { this.AddList()}
+          {this.AddList()}
           </ul>
 
         </div>
