@@ -2,8 +2,8 @@ import React from 'react';
 import List from './components/List';
 import UserData from './components/Data';
 import client from './components/clients.json';
-class App extends React.Component {
 
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +25,6 @@ class App extends React.Component {
 
   Check(event) {
       event.preventDefault();
-    //  console.log(event.target.id);
           for (var key in client) {
            if (client[key]['general']['lastName'] === event.target.id) {
                 console.log(client[key]['general']['lastName']);
