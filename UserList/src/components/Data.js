@@ -10,16 +10,16 @@ class Data extends React.Component {
       return (
           <div className='data'>
             <h3>General</h3>
-            <p>FirstName: {this.props.firstName} </p>
-            <p>LastName: {this.props.lastName}</p>
-            <img src={this.props.avatar} style={style} className='imgData'/>
-            <h3>Job</h3>
+              <p><img src={this.props.avatar} style={style} className='imgData'/>
+                  FirstName: {this.props.firstName}
+                  LastName: {this.props.lastName}</p>
+            <h5>Job</h5>
             <p>Company: {this.props.company}</p>
             <p>Title: {this.props.title}</p>
-            <h3>Contact</h3>
+            <h5>Contact</h5>
             <p>Email: {this.props.email}</p>
             <p>Phone: {this.props.phone}</p>
-            <h3>Address</h3>
+            <h5>Address</h5>
             <p>Street: {this.props.street}</p>
             <p>City: {this.props.city}</p>
             <p>ZipCode: {this.props.zipCode}</p>
@@ -30,7 +30,7 @@ class Data extends React.Component {
     }
     else {
       return(
-          <div className='data'>
+          <div className='null'>
             <h1>Choose person!</h1>
           </div>
       )

@@ -1,10 +1,15 @@
 .data{
   position: absolute;
-  left: 600px;
+  left: 60vh;
   top: 10px;
 }
 
 .imgData{
-  width: 300px;
-  height: 300px;
+  width: 30vh;
+  height: 30vh;
+}
+.null{
+  position: absolute;
+  left: 60vh;
+  top: 400px;
 }

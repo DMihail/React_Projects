@@ -1,5 +1,5 @@
 import React from 'react';
-import client from './clients.json';
+import client from '../data/clients.json';
 import style from '../style/List.css';
 
 class List extends React.Component {
@@ -17,15 +17,15 @@ class List extends React.Component {
   }
 
    AddList(){
-       let MassList = [];
 
+       let MassList = [];
         if (this.state.search === undefined || this.state.search === null || this.state.search === '') {
             for (let key in client) {
                 MassList.push(<li id={client[key]['general']['lastName']} onClick={this.props.check}
                                   class="list-group-item list-group-item-action list-group-item-secondary">
-                    <img src={client[key]['general']['avatar']} style={style}/>
-                    FirstName: {client[key]['general']['firstName']}
-                    LastName: {client[key]['general']['lastName']}
+                    <img className= 'listImg' src={client[key]['general']['avatar']} style={style} />
+                    {'   ' + client[key]['general']['firstName'] + ' '  }
+                    {client[key]['general']['lastName']}
                 </li>)
             }
         }
@@ -34,9 +34,9 @@ class List extends React.Component {
                 if (~client[key]['general']['firstName'].indexOf(this.state.search) || ~client[key]['general']['lastName'].indexOf(this.state.search) ) {
                     MassList.push(<li id={client[key]['general']['lastName']} onClick={this.props.check}
                                       class="list-group-item list-group-item-action list-group-item-secondary">
-                        <img src={client[key]['general']['avatar']} style={style}/>
-                        FirstName: {client[key]['general']['firstName']}
-                        LastName: {client[key]['general']['lastName']}
+                        <img className= 'listImg'  src={client[key]['general']['avatar']} style={style} />
+                        {'  ' +  client[key]['general']['firstName'] + ' ' }
+                        {client[key]['general']['lastName']}
                     </li>)
                 }
             }
@@ -46,8 +46,8 @@ class List extends React.Component {
 
   render(){
     return(
-      <div>
-        <input type = 'search' placeholder = 'search' onChange = {this.Search} value={this.state.search}/>
+      <div class = "list-group">
+        <input type = 'search' class = 'search' placeholder = 'search' onChange = {this.Search} value={this.state.search}/>
         <div class = 'cont'>
               <ul  class="list-group">
               {this.AddList()}

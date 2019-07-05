@@ -1,7 +1,7 @@
 import React from 'react';
 import List from './components/List';
 import UserData from './components/Data';
-import client from './components/clients.json';
+import client from './data/clients.json';
 
 class App extends React.Component {
   constructor(props) {
