@@ -23,7 +23,7 @@ class List extends React.Component {
             for (let key in client) {
                 MassList.push(<li id={client[key]['general']['lastName']} onClick={this.props.check}
                                   class="list-group-item list-group-item-action list-group-item-secondary">
-                    <img className= 'listImg' src={client[key]['general']['avatar']} style={style} />
+                    <img class= 'listImg' src={client[key]['general']['avatar']} style={style} />
                     {'   ' + client[key]['general']['firstName'] + ' '  }
                     {client[key]['general']['lastName']}
                 </li>)

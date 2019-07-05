@@ -9,10 +9,11 @@ class Data extends React.Component {
     if (this.props.firstName !== null) {
       return (
           <div className='data'>
-            <h3>General</h3>
-              <p><img src={this.props.avatar} style={style} className='imgData'/>
-                  FirstName: {this.props.firstName}
-                  LastName: {this.props.lastName}</p>
+              <img src={this.props.avatar} style={style} class="pull-left"/>
+             <div class="text-left">
+                 <h5>General</h5>
+            <p>Name: {this.props.firstName}</p>
+            <p>LastName: {this.props.lastName}</p>
             <h5>Job</h5>
             <p>Company: {this.props.company}</p>
             <p>Title: {this.props.title}</p>
@@ -24,6 +25,7 @@ class Data extends React.Component {
             <p>City: {this.props.city}</p>
             <p>ZipCode: {this.props.zipCode}</p>
             <p>Country: {this.props.country}</p>
+              </div>
           </div>
 
       );

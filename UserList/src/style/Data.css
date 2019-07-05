@@ -4,12 +4,23 @@
   top: 10px;
 }
 
-.imgData{
+.pull-left{
+  position: relative;
   width: 30vh;
   height: 30vh;
+  top: 20vh;
 }
 .null{
   position: absolute;
-  left: 60vh;
+  left: 100vh;
   top: 400px;
+}
+.text-left{
+  position: relative;
+  padding-left: 50vh;
+  top: -20vh;
+}
+h5{
+  position: relative;
+  left: -10vh;
 }
