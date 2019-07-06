@@ -1,0 +1,168 @@
+.data{
+    position: relative;
+    bottom: 180px;
+    left: 35px;
+    color: gray;
+    font-size: 13px;
+    font-family: "Myriad Pro", serif;
+    z-index: 63;
+}
+
+.Price{
+    position: relative;
+    bottom: 180px;
+    left: 35px;
+    color: white;
+    font-size: 25px;
+    font-family: "Myriad Pro", serif;
+    z-index: 63;
+}
+.PriceData{
+    position: relative;
+    bottom: 180px;
+    left: 60px;
+    color: white;
+    font-size: 25px;
+    font-family: "Myriad Pro", serif;
+    z-index: 63;
+}
+.Percent{
+    position: relative;
+    bottom:180px;
+    left: 35px;
+    color: white;
+    font-size: 14px;
+    font-family: "Myriad Pro", serif;
+    z-index: 63;
+}
+.positive{
+    left: 125px;
+    position: relative;
+    bottom: 180px;
+    color: green;
+    font-size: 13px;
+    font-family: "Myriad Pro", serif;
+    z-index: 63;
+}
+
+.negative{
+    left: 125px;
+    position: relative;
+    bottom: 180px;
+    color: red;
+    font-size: 13px;
+    font-family: "Myriad Pro", serif;
+    z-index: 63;
+
+}
+
+.bitcoin{
+    position: absolute;
+    left: 930px;
+    top: 140px;
+}
+
+.litecoin{
+    position: absolute;
+    left: 580px;
+    top: 140px;
+}
+
+.ethereum{
+    position: absolute;
+    left: 230px;
+    top: 140px;
+}
+
+input[type = 'checkbox'] {
+    display: none;
+}
+
+.clicck{
+    padding: 40px;
+    position: absolute;
+    top: -180px;
+    left: 210px;
+}
+
+.clicck::before{
+    z-index: 71;
+    background-color: rgb(196, 196, 196);
+    box-shadow: inset 1px 3px 7px 0 rgba(27, 36, 40, 0.56);
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+    border-radius: 30px;
+}
+i {
+    content: '';
+    position: relative;
+    background-image: url("../img/i.png");
+    top: -2px;
+}
+i::before {
+    border-radius: 30px;
+    content: '';
+    position: absolute;
+    background-image: url("../img/i.png");
+    width: 23px;
+    height: 23px;
+    left: -40px;
+}
+input:checked+i:before{
+      left: -15px;
+  }
+
+.header{
+    border-width: 1px;
+    background: rgba(255, 255, 255, 0.01);
+    border-color: rgba(146, 232, 254, 0.1);
+    border-style: solid;
+    border-radius: 10px;
+    position: absolute;
+    left: 267px;
+    width: 985px;
+    height: 98px;
+    z-index: 80;
+}
+
+.header h1{
+    top: 20px;
+    left: 120px;
+    font-size: 32px;
+    font-family: "Myriad Pro", serif;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 84;
+}
+.select{
+    position: relative;
+    margin-bottom: 1rem;
+    left: 760px;
+    top: 20px;
+}
+
+.select:after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 5px 0 5px;
+    border-color: #91e6fe transparent transparent transparent;
+    left: 150px;
+    position: relative;
+    top: -25px;
+}
+
+.select select{
+    padding: .75rem 5rem;
+    background: #1e252b;
+    border: solid 1px rgb(146, 232, 254);
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: "Myriad Pro", serif;
+    color: white;
+    border-radius: 5px;
+}

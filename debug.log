@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 [0702/210656.723:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0702/210656.723:ERROR:crash_report_database_win.cc(469)] failed to stat report
+=======
+[0702/210820.525:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0702/210820.526:ERROR:crash_report_database_win.cc(469)] failed to stat report
+>>>>>>> a526c167f21ab1148f841672418b020147c055a3

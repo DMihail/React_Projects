@@ -1,0 +1,24 @@
+.listImg{
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+}
+.search{
+  width:40vh;
+}
+.list-group{
+  height:100vh;
+}
+li{
+  height: 70px;
+}
+.cont{
+  height:100vh;
+  overflow-x: hidden;
+  width: 40vh;
+}
+p{
+  position: relative;
+  left: 60px;
+  top: -60px;
+}
