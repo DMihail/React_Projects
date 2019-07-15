@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
+import { StyleSheet, Text, View, Image, ImageBackground, ScrollView } from 'react-native'
 import ImgList from './ImgList';
 
 
@@ -14,15 +14,18 @@ constructor(props){
     super(props);
     this.state = {
         ImgData : [],
-        st: false
+        stay: false
     }
 }
-
+mass = [];
 CreateImgList =  async (URL) => {
     try {
             const response = await fetch(URL);
             const data =  await response.json();
-            this.setState({ImgData:data})
+            this.mass.push(data);
+            console.log(this.mass)
+           // this.setState({ImgData : this.mass})
+        this.setState({ImgData : data})
         }catch (e) {
             throw e;
         }
@@ -31,29 +34,26 @@ CreateImgList =  async (URL) => {
 
 Get(){
     this.CreateImgList(Url1);
+      this.CreateImgList(Url2);
+      this.CreateImgList(Url3);
 }
 
 render() {
-    if (!this.state.s1) {
-        this.Get()
-        this.state.s1 = true;
-    }
 
-// this.CreateImgList(Url2);
-// this.CreateImgList(Url3);
-//         //if (ImgData.length > 0) {
-            // console.log(this.state.ImgData[0]);
-//       //  }
-//         this.state.ImgData.map( item => {
-//             console.log(item['id'])
-//         }
-//         );
+    const {ImgData, stay} = this.state;
+    if (!stay) {
+        this.Get();
+       this.state.stay = true;
+   }
+
         return (
             <View>
-                {this.state.ImgData.map( item => {
-                     //console.log(item['id'], item['urls']['raw'], item['user']['name'])
-                    <ImgList  id = {item['id']} img = {item['urls']['raw']} name = {item['user']['name']}/>
+                <ScrollView>
+                {ImgData.map( item => {
+                   // console.log(item);
+                  return  <ImgList img = {item['urls']['raw']} key = {item['id']} name = {item['user']['name']}/>
                 })}
+                </ScrollView>
             </View>
         );
     }

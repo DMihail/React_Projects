@@ -2,16 +2,21 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
 
 class ImgList extends React.Component{
+    constructor(props){
+        super(props);
+
+    }
     render() {
-        console.log(this.props.id);
+        console.log();
         return(
             <View>
+
                 <Image
-                    style={{width: '100px', height: '100px'}}
-                    id = {this.props.id}
+                    id = {this.props.key}
+                    style={{width: 100, height: 100}}
                     source={{uri: this.props.img}}
                 />
-                <Text> {this.props.name}</Text>
+                <Text>{this.props.name}</Text>
             </View>
         );
     }
