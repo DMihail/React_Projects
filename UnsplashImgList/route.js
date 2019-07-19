@@ -1,0 +1,2 @@
+export const UNSPLASH_LIST = 'UNSPLASH_LIST';
+export const UNSPLASH_IMG = 'UNSPLASH_IMG';
