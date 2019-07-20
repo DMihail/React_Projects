@@ -24,11 +24,11 @@ class ImgList extends React.Component{
     }
 
     render() {
-        const {navigation} = this.state
+       // const {navigation} = this.state;
         return(
             <View style = {styles.view}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate(UNSPLASH_IMG)}
+                   // onPress={() => navigation.navigate(UNSPLASH_IMG)}
                 >
                 <Image
                     key= {this.props.id}

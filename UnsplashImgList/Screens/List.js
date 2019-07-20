@@ -25,10 +25,8 @@ export default class List extends React.Component {
         try {
             const response = await fetch(URL);
             const data = await response.json();
-            this.mass.push(data);
-            // console.log(this.mass)
-            // this.setState({ImgData : this.mass})
-            this.setState({ImgData: data})
+            this.mass = [...this.mass, ...data];
+            this.setState({ImgData : this.mass});
         } catch (e) {
             throw e;
         }
