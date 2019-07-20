@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, Dimensions } from 'react-native'
+import { StyleSheet, View, ImageBackground, Dimensions, Text } from 'react-native'
+
+
 
 
 class Backgraund extends React.Component{
@@ -7,9 +9,10 @@ class Backgraund extends React.Component{
         super(props);
     }
     render() {
+        const {image} = this.props.navigation.state.params;
         return(
             <View>
-                <ImageBackground source={{uri: this.props.img}} style={{width: '100%', height: '100%'}}>
+                <ImageBackground source={{uri: image}} style={{width: '100%', height: '100%'}}>
                 </ImageBackground>
             </View>
         );

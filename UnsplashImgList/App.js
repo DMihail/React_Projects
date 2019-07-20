@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import List from './Screens/List'
-import Img from './Screens/AllScreen'
+import List from './public/Screens/List'
+import Img from './public/Screens/AllScreen'
 import {
     UNSPLASH_LIST,
     UNSPLASH_IMG
