@@ -9,8 +9,8 @@ import {
 
 const AppNavigator = createStackNavigator(
     {
-        UNSPLASH_LIST: List,
-        UNSPLASH_IMG: Img
+        [UNSPLASH_LIST]: List,
+        [UNSPLASH_IMG]: Img
     },
     {
         headerMode: "none"

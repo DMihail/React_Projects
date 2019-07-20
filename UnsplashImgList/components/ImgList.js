@@ -6,13 +6,10 @@ import {
     View,
     Image,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
+    Button
 } from 'react-native'
-import {
-    UNSPLASH_LIST,
-    UNSPLASH_IMG
-} from "../route";
-
+import {UNSPLASH_IMG} from "../route";
 
 const Screen =  Dimensions.get('window');
 const  ScreenWidth = Screen.width;
@@ -24,13 +21,12 @@ class ImgList extends React.Component{
     }
 
     render() {
-       // const {navigation} = this.state;
+
         return(
             <View style = {styles.view}>
-                <TouchableOpacity
-                   // onPress={() => navigation.navigate(UNSPLASH_IMG)}
-                >
-                <Image
+                <TouchableOpacity onPress = {this.props.onPress}
+                    >
+                    <Image
                     key= {this.props.id}
                     style={styles.Img}
                     source={{uri: this.props.img}}
