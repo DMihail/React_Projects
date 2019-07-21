@@ -45,7 +45,7 @@ class ImgList extends React.Component{
                                 width: ScreenWidth/3}}
                             source={{uri: this.props.img}}
                         />
-                        <Text style={{fontSize: 20, display: this.state.ImgStyle}}>{this.props.name}</Text>
+                        <Text style={{fontSize: 20, display: this.state.ImgStyle, width: ScreenWidth/4}}>{this.props.name}</Text>
                     </TouchableOpacity>
                 </View>
             );

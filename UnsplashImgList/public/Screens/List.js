@@ -49,6 +49,9 @@ export default class List extends React.Component {
         if (!this.state.bag) {
             const {ImgData, stay} = this.state;
             if (!stay) {
+                console.log(
+                    'add'
+                )
                 this.Get();
                 this.state.stay = true;
             }
@@ -59,12 +62,14 @@ export default class List extends React.Component {
                     <ScrollView
                         onContentSizeChange = {(w, h)=>{
                             this.state.height = h;
+                           // console.log(this.state.height )
                         }}
                         crollEventThrottle={1}
                         onScroll={(e)=>{
-                            if ( e.nativeEvent.contentOffset.y >= this.state.height - 1000)  {
+                            if ( e.nativeEvent.contentOffset.y >= (this.state.height - 1000))  {
                                  console.log('y', e.nativeEvent.contentOffset.y);
-                                this.state.stay = false;
+                                this.state.bag = false;
+                                //this.setState({bag: false})
                             }
                         }}
                     >

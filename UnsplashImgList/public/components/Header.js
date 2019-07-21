@@ -10,7 +10,7 @@ class Header extends React.Component{
     render() {
         return(
             <View style = {styles.header}>
-                <Text style = {styles.text}>  Unsplash Image</Text>
+                <Text style = {styles.text}>Unsplash Image</Text>
             </View>
         );
     }
