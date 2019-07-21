@@ -1,8 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, ScrollView } from 'react-native'
+import {StyleSheet, View, ScrollView} from 'react-native'
 import ImgList from '../components/ImgList';
 import Backgraund from '../components/Backgraund'
 import Header from '../components/Header'
+import {
+    UNSPLASH_IMG
+} from "../../route";
+
+
 
 const Url1 = 'https://api.unsplash.com/photos/?client_id=cf49c08b444ff4cb9e4d126b7e9f7513ba1ee58de7906e4360afc1a33d1bf4c0';
 const Url2 = 'https://api.unsplash.com/photos/?client_id=ab3411e4ac868c2646c0ed488dfd919ef612b04c264f3374c97fff98ed253dc9';
@@ -16,7 +21,8 @@ export default class List extends React.Component {
             ImgData: [],
             stay: false,
             img: undefined,
-            bag: false
+            bag: false,
+            height: 0
         }
     }
 
@@ -46,13 +52,35 @@ export default class List extends React.Component {
                 this.Get();
                 this.state.stay = true;
             }
+                const {navigation} = this.props;
             return (
                 <View>
                     <Header/>
-                    <ScrollView>
+                    <ScrollView
+                        onContentSizeChange = {(w, h)=>{
+                            this.state.height = h;
+                        }}
+                        crollEventThrottle={1}
+                        onScroll={(e)=>{
+                            if ( e.nativeEvent.contentOffset.y >= this.state.height - 1000)  {
+                                 console.log('y', e.nativeEvent.contentOffset.y);
+                                this.state.stay = false;
+                            }
+                        }}
+                    >
                         <View style={styles.List}>
                             {ImgData.map(item => {
-                                return <ImgList img={item['urls']['raw']} id={item['id']} name={item['user']['name']}/>
+                                let obj = {
+                                    img: item['urls']['full'],
+                                    name: item['user']['name'],
+                                    header: item['alt_description']
+                                };
+                                return <ImgList
+                                    img={item['urls']['raw']} id={item['id']} name={item['user']['name']}
+                                    onPress={() => navigation.navigate(UNSPLASH_IMG,
+                                        (obj)
+                                    )}
+                                />
                             })}
                         </View>
                     </ScrollView>
