@@ -2,9 +2,11 @@ node_modules/**/*
 .expo/*
 npm-debug.*
 *.jks
+*.log
 *.p12
 *.key
 *.mobileprovision
 *.orig.*
 web-build/
 web-report/
+.idea/*
