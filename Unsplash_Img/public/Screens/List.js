@@ -3,6 +3,8 @@ import {StyleSheet, View, ScrollView, Alert}from 'react-native'
 import ImgList from '../components/ImgList';
 import Backgraund from '../components/Backgraund'
 import Header from '../components/Header'
+import StateNet from "../components/StateNet";
+import {NetInfo, TouchableOpacity} from 'react-native';
 import {
     UNSPLASH_IMG
 } from "../../route";
@@ -19,11 +21,27 @@ export default class List extends React.Component {
             stay: false,
             img: undefined,
             bag: false,
-            height: 0
+            height: 0,
+            net: false
         }
     }
 
     mass = [];
+
+    Nat = NetInfo.isConnected.fetch().then(isConnected => {
+        if(isConnected)
+        {
+          //  Alert.alert('Internet is connected');
+            this.setState({net: true})
+
+        }
+        else {
+            //Alert.alert('not');
+            this.setState({net: false})
+        }
+    });
+
+
     CreateImgList = async (URL) => {
         try {
             const response = await fetch(URL);
@@ -43,66 +61,68 @@ export default class List extends React.Component {
     }
 
     render() {
+        if (this.state.net) {
+            if (!this.state.bag) {
+                const {ImgData, stay} = this.state;
+                if (!stay) {
 
-
-        const YourComplement = () => {
-            const netInfo = useNetInfo();
-            console.log(netInfo)
-        }
-        //console.log(this.state.bag);
-        if (!this.state.bag) {
-            const {ImgData, stay} = this.state;
-            if (!stay) {
-
-                this.Get();
-                this.state.stay = true;
-            }
+                    this.Get();
+                    this.state.stay = true;
+                }
                 const {navigation} = this.props;
-            return (
-                <View>
-                    <Header/>
-                    <ScrollView
-                        onContentSizeChange = {(w, h)=>{
-                            this.state.height = h;
-                           // console.log(this.state.height )
-                        }}
-                        crollEventThrottle={1}
-                        onScroll={(e)=>{
-                            if ( e.nativeEvent.contentOffset.y >= (this.state.height - 1000))  {
-                                 console.log('y', e.nativeEvent.contentOffset.y);
-                               // this.state.bag = false;
-                                this.setState({bag: false})
-                            }
-                        }}
-                    >
-                        <View style={styles.List}>
-                            {ImgData.map(item => {
-                                let obj = {
-                                    img: item['urls']['full'],
-                                    name: item['user']['name'],
-                                    header: item['alt_description']
-                                };
-                                return <ImgList
-                                    img={item['urls']['raw']} id={item['id']} name={item['user']['name']}
-                                    onPress={() => navigation.navigate(UNSPLASH_IMG,
-                                        (obj)
-                                    )}
-                                />
-                            })}
-                        </View>
-                    </ScrollView>
-                </View>
-            );
-        } else {
-            return (
-                <View>
-                    <Backgraund img={this.state.img}/>
+                return (
+                    <View>
+                        <Header/>
+                        <ScrollView
+                            onContentSizeChange={(w, h) => {
+                                this.state.height = h;
+                                // console.log(this.state.height )
+                            }}
+                            crollEventThrottle={1}
+                            onScroll={(e) => {
+                                if (e.nativeEvent.contentOffset.y >= (this.state.height - 1000)) {
+                                    console.log('y', e.nativeEvent.contentOffset.y);
+                                    // this.state.bag = false;
+                                    this.setState({bag: false})
+                                }
+                            }}
+                        >
+                            <View style={styles.List}>
+                                {ImgData.map(item => {
+                                    let obj = {
+                                        img: item['urls']['full'],
+                                        name: item['user']['name'],
+                                        header: item['alt_description']
+                                    };
+                                    return <ImgList
+                                        img={item['urls']['raw']} id={item['id']} name={item['user']['name']}
+                                        onPress={() => navigation.navigate(UNSPLASH_IMG,
+                                            (obj)
+                                        )}
+                                    />
+                                })}
+                            </View>
+                        </ScrollView>
+                    </View>
+                );
+            } else {
+                return (
+                    <View>
+                        <Backgraund img={this.state.img}/>
 
-                </View>
-            );
+                    </View>
+                );
+
+            }
 
         }
-
+        else{
+                return (
+                    <View>
+                            <StateNet />
+                    </View>
+                )
+        }
     }
 }
 

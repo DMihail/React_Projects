@@ -1,46 +1,45 @@
-import {NetInfo, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {StyleSheet, View, Image, Text}from 'react-native'
+import {StyleSheet, View, Image, Text, Dimensions} from 'react-native'
 
-NetInfo.isConnected.fetch().then(isConnected => {
-    if(isConnected)
-    {
-        Alert.alert('Internet is connected');
-
-    }
-    else {
-        Alert.alert('not');
-    }
-});
+const Screen =  Dimensions.get('window');
+const  ScreenWidth = Screen.width;
+const  ScreenHeight = Screen.height;
 
 
 class StateNet extends React.Component{
-    // constructor(props){
-    //     super(props);
-    //     this.state = {
-    //         stateNet: undefined
-    //     }
-    // }
-
     render() {
         return(
 
-            <View>
+            <View style = {styles.view}>
                 <Image
                     onLoadEnd={(e) => {
                         this.setState({load: true});
                     }}
-                    key={this.props.id}
-                    style={{display: this.state.ImgStyle, height: ScreenHeight/3,
-                        width: ScreenWidth/3}}
+
                     source={require('../../assets/wifi-icon.png')}
                 />
-                    <Text>No network connection</Text>
+                    <Text style = {styles.text}>No network connection</Text>
             </View>
 
         );
     }
 }
+
+
+const styles = StyleSheet.create({
+    view:{
+        paddingLeft: ScreenWidth/6,
+        paddingTop: ScreenHeight/4
+    },
+    img:{
+
+    },
+    text: {
+        fontSize: 30,
+        paddingLeft: ScreenWidth/6
+    }
+});
+
 
 
 export default StateNet
