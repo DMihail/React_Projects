@@ -20,12 +20,14 @@ class BackHeader extends React.Component{
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: '#9a63d4',
+        backgroundColor: '#6b6060',
         height: 100,
         justifyContent: 'center',
         paddingLeft: 50,
         paddingTop: 20,
-        position: 'relative'
+        position: 'relative',
+        opacity: 0.3
+
     },
     text:{
         color: 'white',

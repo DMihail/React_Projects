@@ -2,10 +2,10 @@
 
 
 The application allows you to view images from the Internet source
- [Unsplash](https://unsplash.com/)  in list format or in full screen mode.
+ Unsplash in list format or in full screen mode.
 ### REQUIREMENTS
-To run the application, you need to install This site was built using [Node.js ](https://nodejs.org/),
- as well as [Android Studio](https://developer.android.com/studio) or Expo client on your phone.
+To run the application, you need to install Node.js,
+ as well as Android Studio or Expo client on your phone.
 
 ### QUICK START
 Open project in development environment.

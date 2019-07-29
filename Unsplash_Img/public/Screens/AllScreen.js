@@ -33,7 +33,7 @@ class AllScreen extends React.Component{
         }
         return(
             <View>
-                {/*<BackHeader name = {header} onPress = {() => navigation.navigate(UNSPLASH_LIST)}/>*/}
+
                 <ActivityIndicator size="large" color="#0000ff" style = {{ height: ScreenHeight/2,
                     width: ScreenWidth/2, paddingLeft: ScreenWidth/2, paddingTop: ScreenHeight/2,
                     display : this.state.Indicator
@@ -44,6 +44,9 @@ class AllScreen extends React.Component{
                                      this.setState({load: true});
                                  }}>
                 </Image>
+                <View style = {{display: this.state.ImgStyle}}>
+                <BackHeader name = {header} onPress = {() => navigation.navigate(UNSPLASH_LIST)}/>
+                </View>
             </View>
         );
     }
